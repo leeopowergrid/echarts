@@ -1,0 +1,11 @@
+.idea/
+.idea/*
+/.idea/*
+*.iml
+*.class
+.git/
+*.log
+target/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/compiler.xml

@@ -154,43 +154,54 @@
         });
     }, 1000);
 
+
     var axisData = [];
 
-    for (var i = 0; i <= 100; i++) {
-        var theta = i / 100 * 360;
-        var r = 5 * (1 + Math.sin(theta / 180 * Math.PI));
-        axisData.push([r, theta]);
-    }
+//    for (var i = 0; i <= 100; i++) {
+//        var theta = i / 100 * 360;
+//        var r = 5 * (1 + Math.sin(theta / 180 * Math.PI));
+//        axisData.push([r, theta]);
+//    }
 
-    axisOption = {
-        title: {
-            text: '极坐标双数值轴'
-        },
-        legend: {
-            data: ['line']
-        },
-        polar: {},
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'cross'
-            }
-        },
-        angleAxis: {
-            type: 'value',
-            startAngle: 0
-        },
-        radiusAxis: {
-        },
-        series: [{
-            coordinateSystem: 'polar',
-            name: 'line',
-            type: 'line',
-            data: axisData
-        }]
-    };
+    console.log(axisData);
 
-    axisChart.setOption(axisOption);
+    $.ajax({
+        type:"GET",
+        url:"/modeshape/get?name=modeshape2",
+        contentType:"application/json",
+        success:function(data){
+            console.log(data);
+            var axisOption = {
+                title: {
+                    text: '极坐标双数值轴'
+                },
+                legend: {
+                    data: ['line']
+                },
+                polar: {},
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                },
+                angleAxis: {
+                    type: 'value',
+                    startAngle: 0
+                },
+                radiusAxis: {
+                },
+                series: [{
+                    coordinateSystem: 'polar',
+                    name: 'line',
+                    type: 'line',
+                    data: eval(data)
+                }]
+            };
+            axisChart.setOption(axisOption);
+        }
+    });
+
 </script>
 </body>
 </html>

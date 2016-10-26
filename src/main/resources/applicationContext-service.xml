@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 单品数据文件配置 -->
+    <util:map id="dampingDataFileMap" map-class="java.util.HashMap" key-type="java.lang.String"
+              value-type="java.lang.String">
+        <entry key="damping1" value="${data.path}/damping1.txt"/>
+        <entry key="damping2" value="${data.path}/damping2.txt"/>
+        <entry key="damping3" value="${data.path}/damping3.txt"/>
+    </util:map>
+
+    <util:map id="frequencyDataFileMap" map-class="java.util.HashMap" key-type="java.lang.String"
+              value-type="java.lang.String">
+        <entry key="frequency1" value="${data.path}/frequency1.txt"/>
+        <entry key="frequency2" value="${data.path}/frequency2.txt"/>
+        <entry key="frequency3" value="${data.path}/frequency3.txt"/>
+    </util:map>
+
+
+    <util:map id="modeshapeDataFileMap" map-class="java.util.HashMap" key-type="java.lang.String"
+              value-type="java.lang.String">
+        <entry key="modeshape1" value="${data.path}/modeshape1.txt"/>
+        <entry key="modeshape2" value="${data.path}/modeshape2.txt"/>
+        <entry key="modeshape3" value="${data.path}/modeshape3.txt"/>
+    </util:map>
+
+    <util:map id="vmagDataFileMap" map-class="java.util.HashMap" key-type="java.lang.String"
+              value-type="java.lang.String">
+        <entry key="vmag1" value="${data.path}/V_Mag1.txt"/>
+        <entry key="vmag2" value="${data.path}/V_Mag2.txt"/>
+        <entry key="vmag3" value="${data.path}/V_Mag3.txt"/>
+        <entry key="vmag4" value="${data.path}/V_Mag4.txt"/>
+        <entry key="vmag5" value="${data.path}/V_Mag5.txt"/>
+        <entry key="vmag6" value="${data.path}/V_Mag6.txt"/>
+        <entry key="vmag7" value="${data.path}/V_Mag7.txt"/>
+        <entry key="vmag8" value="${data.path}/V_Mag8.txt"/>
+        <entry key="vmag9" value="${data.path}/V_Mag9.txt"/>
+        <entry key="vmag10" value="${data.path}/V_Mag10.txt"/>
+        <entry key="vmag11" value="${data.path}/V_Mag11.txt"/>
+        <entry key="vmag12" value="${data.path}/V_Mag12.txt"/>
+        <entry key="vmag13" value="${data.path}/V_Mag13.txt"/>
+        <entry key="vmag14" value="${data.path}/V_Mag14.txt"/>
+        <entry key="vmag15" value="${data.path}/V_Mag15.txt"/>
+        <entry key="vmag16" value="${data.path}/V_Mag16.txt"/>
+        <entry key="vmag17" value="${data.path}/V_Mag17.txt"/>
+        <entry key="vmag18" value="${data.path}/V_Mag18.txt"/>
+        <entry key="vmag19" value="${data.path}/V_Mag19.txt"/>
+        <entry key="vmag20" value="${data.path}/V_Mag20.txt"/>
+        <entry key="vmag21" value="${data.path}/V_Mag21.txt"/>
+        <entry key="vmag22" value="${data.path}/V_Mag22.txt"/>
+        <entry key="vmag23" value="${data.path}/V_Mag23.txt"/>
+        <entry key="vmag24" value="${data.path}/V_Mag24.txt"/>
+        <entry key="vmag25" value="${data.path}/V_Mag25.txt"/>
+        <entry key="vmag26" value="${data.path}/V_Mag26.txt"/>
+        <entry key="vmag27" value="${data.path}/V_Mag27.txt"/>
+        <entry key="vmag28" value="${data.path}/V_Mag28.txt"/>
+        <entry key="vmag29" value="${data.path}/V_Mag29.txt"/>
+        <entry key="vmag30" value="${data.path}/V_Mag30.txt"/>
+        <entry key="vmag31" value="${data.path}/V_Mag31.txt"/>
+    </util:map>
+
+</beans>

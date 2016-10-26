@@ -31,11 +31,46 @@ public class ModeshapeController {
         for (Complex[] x : modeShapeData) {
             for (Complex y : x) {
                 List<Double> value = new ArrayList<>();
-                value.add(y.getReal());
-                value.add(y.getImaginary());
+                double[] values = transferPolarCoordinates(y.getReal(), y.getImaginary());
+                value.add(values[0]);
+                value.add(values[1]);
                 result.add(value);
             }
         }
         return result;
     }
+
+    private double[] transferPolarCoordinates(double x, double y) {
+        double[] result = new double[2];
+        result[0] = calculateHypotenuse(x, y);
+        result[1] = calculateAngle(x, y);
+        return result;
+    }
+
+    public double calculateAngle(double x, double y) {
+        double tan = Math.abs(Math.abs(y) / Math.abs(x));
+        double angle = Math.toDegrees(Math.atan(tan));
+        double baseAngle = 0;
+        if (x < 0 && y > 0) {
+            baseAngle = 180 - 2 * angle;
+        }
+        if (x < 0 && y < 0) {
+            baseAngle = 180;
+        }
+        if (x > 0 && y < 0) {
+            baseAngle = 270;
+        }
+        return baseAngle + angle;
+    }
+
+    private double calculateHypotenuse(double x, double y) {
+        return Math.sqrt(x * x + y * y);
+    }
+
+    public static void main(String[] args) {
+        ModeshapeController controller = new ModeshapeController();
+        System.out.println(controller.calculateAngle(-3, -4));
+        System.out.println(controller.calculateHypotenuse(3, 4));
+    }
+
 }

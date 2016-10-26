@@ -17,14 +17,13 @@ import java.util.List;
 @Controller
 @ResponseBody
 @RequestMapping("/frequency")
-public class FrequencyController extends BaseController {
+public class FrequencyController {
 
     @Autowired
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
     public List<Double> getData(DataRequest dampingRequest) {
-        Double[] data = dataService.getFrequencyData(dampingRequest.getName());
-        return getDoubleList(data);
+        return dataService.getFrequencyData(dampingRequest.getName());
     }
 }

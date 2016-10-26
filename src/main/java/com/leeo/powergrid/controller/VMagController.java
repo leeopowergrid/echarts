@@ -1,6 +1,5 @@
 package com.leeo.powergrid.controller;
 
-import com.leeo.powergrid.bean.Complex;
 import com.leeo.powergrid.request.DataRequest;
 import com.leeo.powergrid.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,25 +13,25 @@ import java.util.List;
 
 /**
  * @author 许峰敏 E-mail: fengmin.xu@56qq.com
- * @since 2016-10-26 19:33
+ * @since 2016-10-26 20:51
  */
 @Controller
 @ResponseBody
-@RequestMapping("/modeshape")
-public class ModeshapeController {
+@RequestMapping("/V_Mag")
+public class VMagController {
 
     @Autowired
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
     public List<List<Double>> getData(DataRequest request) {
-        Complex[][] modeShapeData = dataService.getModeShapeData(request.getName());
+        Double[][] vMagData = dataService.getVMagData(request.getName());
         List<List<Double>> result = new ArrayList<>();
-        for (Complex[] x : modeShapeData) {
-            for (Complex y : x) {
+        for (Double[] x : vMagData) {
+            for (Double y : x) {
                 List<Double> value = new ArrayList<>();
-                value.add(y.getReal());
-                value.add(y.getImaginary());
+                // value.add(x) TODO X坐标
+                value.add(y); // Y坐标
                 result.add(value);
             }
         }

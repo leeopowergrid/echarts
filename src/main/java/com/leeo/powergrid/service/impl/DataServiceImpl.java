@@ -73,9 +73,19 @@ public class DataServiceImpl implements DataService, InitializingBean {
     @Override
     public Double[] getDampingData(String name) {
         Double[][] values = dampingData.get(name);
-        Double[] result = new Double[values.length];
-        for (int i = 0; i < values.length; i++) {
-            result[i] = values[i][0];
+        return getOneDimensionData(values);
+    }
+
+    @Override
+    public Double[] getFrequencyData(String name) {
+        Double[][] values = frequencyData.get(name);
+        return getOneDimensionData(values);
+    }
+
+    private Double[] getOneDimensionData(Double[][] data) {
+        Double[] result = new Double[data.length];
+        for (int i = 0; i < data.length; i++) {
+            result[i] = data[i][0];
         }
         return result;
     }

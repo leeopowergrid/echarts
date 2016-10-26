@@ -2,7 +2,7 @@ package com.leeo.powergrid.container;
 
 import com.leeo.powergrid.TestBase;
 import com.leeo.powergrid.controller.DampingController;
-import com.leeo.powergrid.request.DampingRequest;
+import com.leeo.powergrid.request.DataRequest;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class ControllerTest extends TestBase {
 
     @Test
     public void controllerTest() throws Exception {
-        DampingRequest request = new DampingRequest();
+        DataRequest request = new DataRequest();
         request.setName("damping1");
         System.out.println(dampingController.getData(request));
     }

@@ -12,19 +12,19 @@ import java.util.List;
 
 /**
  * @author 许峰敏 E-mail: fengmin.xu@56qq.com
- * @since 2016-10-26 14:33
+ * @since 2016-10-26 18:14
  */
 @Controller
 @ResponseBody
-@RequestMapping("/damping")
-public class DampingController extends BaseController {
+@RequestMapping("/frequency")
+public class FrequencyController extends BaseController {
 
     @Autowired
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
     public List<Double> getData(DataRequest dampingRequest) {
-        Double[] data = dataService.getDampingData(dampingRequest.getName());
+        Double[] data = dataService.getFrequencyData(dampingRequest.getName());
         return getDoubleList(data);
     }
 }

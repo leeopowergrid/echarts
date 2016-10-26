@@ -8,4 +8,6 @@ public interface DataService {
 
     public Double[] getDampingData(String name);
 
+    public Double[] getFrequencyData(String name);
+
 }

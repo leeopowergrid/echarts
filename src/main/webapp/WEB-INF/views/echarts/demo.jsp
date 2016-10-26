@@ -46,113 +46,134 @@
         addData();
     }
 
-//    var option = {
-//        title: {
-//            text: '异步数据加载示例'
-//        },
-//        xAxis: {
-//            type: 'category',
-//            boundaryGap: true,
-//            data: date
-//        },
-//        yAxis: {
-//            boundaryGap: [0, '50%'],
-//            type: 'value'
-//        },
-//        series: [
-//            {
-//                name:'销量',
-//                type:'line',
-//                smooth:true,
-//                symbol: 'none',
-//                stack: 'a',
-//                areaStyle: {
-//                    normal: {}
-//                },
-//                data: data
-//            }
-//        ]
-//    };
-
-    option = {
-        title: {
-            text: '折线图堆叠'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        legend: {
-            data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-        },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-        },
-        toolbox: {
-            feature: {
-                saveAsImage: {}
-            }
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['周一','周二','周三','周四','周五','周六','周日']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                name:'邮件营销',
-                type:'line',
-                stack: '总量',
-                data:[120, 132, 101, 134, 90, 230, 210]
-            },
-            {
-                name:'联盟广告',
-                type:'line',
-                stack: '总量',
-                data:[220, 182, 191, 234, 290, 330, 310]
-            },
-            {
-                name:'视频广告',
-                type:'line',
-                stack: '总量',
-                data:[150, 232, 201, 154, 190, 330, 410]
-            },
-            {
-                name:'直接访问',
-                type:'line',
-                stack: '总量',
-                data:[320, 332, 301, 334, 390, 330, 320]
-            },
-            {
-                name:'搜索引擎',
-                type:'line',
-                stack: '总量',
-                data:[820, 932, 901, 934, 1290, 1330, 1320]
-            }
-        ]
-    };
 
     timeTicket = setInterval(function () {
-        addData(true);
         $.ajax({
-            type:"POST",
-            url:"/test/post",
+            type:"GET",
+            url:"/V_Mag/get?name=V_Mag1",
             contentType:"application/json",
-            data:JSON.stringify({
-                username:"lijun",
-                password:"jdjfs"
-            }),
-            dataType:"json",
             success:function(data){
+                var axis_x = [];
+                for (var i = 1; i < 20000; i++) {
+                    axis_x.push(i);
+                }
+                var axis_y = eval(data);
+                option = {
+                    title: {
+                        text: '未来一周气温变化',
+                        subtext: '纯属虚构'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['最高气温','最低气温']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            dataZoom: {
+                                yAxisIndex: 'none'
+                            },
+                            dataView: {readOnly: false},
+                            magicType: {type: ['line', 'bar']},
+                            restore: {},
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis:  {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: axis_x
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            name:'最高气温',
+                            type:'line',
+                            data:axis_y[0],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    {type: 'average', name: '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'气温',
+                            type:'line',
+                            data:axis_y[1],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    {type: 'average', name: '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'高气',
+                            type:'line',
+                            data:axis_y[2],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    {type: 'average', name: '平均值'}
+                                ]
+                            }
+                        },
+                        {
+                            name:'最低',
+                            type:'line',
+                            data:axis_y[3],
+                            markPoint: {
+                                data: [
+                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    {type: 'average', name: '平均值'},
+                                    [{
+                                        symbol: 'none',
+                                        x: '90%',
+                                        yAxis: 'max'
+                                    }, {
+                                        symbol: 'circle',
+                                        label: {
+                                            normal: {
+                                                position: 'start',
+                                                formatter: '最大值'
+                                            }
+                                        },
+                                        type: 'max',
+                                        name: '最高点'
+                                    }]
+                                ]
+                            }
+                        }
+                    ]
+                };
                 lineChart.setOption(option);
             }
         });
-    }, 1000);
+    }, 15000);
 
 
     var axisData = [];
@@ -170,7 +191,7 @@
         url:"/modeshape/get?name=modeshape2",
         contentType:"application/json",
         success:function(data){
-            console.log(data);
+            console.log(JSON.stringify(data));
             var axisOption = {
                 title: {
                     text: '极坐标双数值轴'

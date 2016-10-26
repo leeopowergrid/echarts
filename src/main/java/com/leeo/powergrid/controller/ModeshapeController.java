@@ -37,7 +37,7 @@ public class ModeshapeController {
                 result.add(value);
             }
         }
-        return result;
+        return result.subList(1,13);
     }
 
     private double[] transferPolarCoordinates(double x, double y) {

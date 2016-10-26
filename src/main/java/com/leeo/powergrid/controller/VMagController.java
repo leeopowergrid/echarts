@@ -28,12 +28,12 @@ public class VMagController {
         Double[][] vMagData = dataService.getVMagData(request.getName());
         List<List<Double>> result = new ArrayList<>();
         for (Double[] x : vMagData) {
+            List<Double> value = new ArrayList<>();
             for (Double y : x) {
-                List<Double> value = new ArrayList<>();
                 // value.add(x) TODO X坐标
                 value.add(y); // Y坐标
-                result.add(value);
             }
+            result.add(value);
         }
         return result;
     }

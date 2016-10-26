@@ -27,7 +27,7 @@
         <entry key="modeshape3" value="${data.path}/modeshape3.txt"/>
     </util:map>
 
-    <util:map id="vmagDataFileMap" map-class="java.util.HashMap" key-type="java.lang.String"
+    <util:map id="vMagDataFileMap" map-class="java.util.HashMap" key-type="java.lang.String"
               value-type="java.lang.String">
         <entry key="vmag1" value="${data.path}/V_Mag1.txt"/>
         <entry key="vmag2" value="${data.path}/V_Mag2.txt"/>

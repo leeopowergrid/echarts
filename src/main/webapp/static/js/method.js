@@ -1,18 +1,22 @@
-function btnClick() {
-    $('.method_1').click(function () {
-        $('.containerName').empty().append("Method_1");
-        $('.container').empty().append("" +
-            '<div id="v_msg_chart" style="width: 800px;height: 500px;"></div>' +
-            '<div id="damping_chart" style="width: 800px;height: 500px;"></div>' +
-            '<div id="frequency_chart" style="width: 800px;height: 500px;"></div>' +
-            '<div id="modeshape_chart" style="width: 800px;height: 500px;"></div>')
-        renderTestChart();
-    })
+function btnClick(methodName) {
+    $('.containerName').empty().append(methodName);
+    $('.container').empty().append("" +
+        '<div id="v_msg_chart" style="width: 800px;height: 500px;"></div>' +
+        '<div id="damping_chart" style="width: 800px;height: 500px;"></div>' +
+        '<div id="frequency_chart" style="width: 800px;height: 500px;"></div>' +
+        '<div id="modeshape_chart" style="width: 800px;height: 500px;"></div>')
+    var fileName;
+    if (methodName == "ERA_RD") {
+        fileName = ""
+    } else if (methodName == "ERA_NEXT") {
+        fileName = ""
+    } else if (methodName == "SWRDITDAmbient") {
+        fileName = ""
+    }
+    renderTestChart(fileName);
 }
 
-btnClick();
-
-function renderTestChart() {
+function renderTestChart(fileName) {
     // 基于准备好的dom，初始化echarts实例
     var vMsg_Chart = echarts.init(document.getElementById('v_msg_chart'));
 

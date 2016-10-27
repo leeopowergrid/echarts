@@ -38,7 +38,11 @@ public class ModeshapeController {
                 result.add(value);
             }
         }
-        return new PageResult(request.getNextPage(),result.subList(0,request.getPageIndex()));
+
+        int start = (request.getPageIndex()-1)*request.getPageSize();
+        int end = start+12;
+
+        return new PageResult(request.getNextPage(),result.subList(start,end));
     }
 
     private double[] transferPolarCoordinates(double x, double y) {

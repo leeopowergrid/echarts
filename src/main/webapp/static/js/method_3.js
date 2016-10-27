@@ -1,5 +1,6 @@
 function btnClick() {
     $('.method_3').click(function () {
+        $('.containerName').empty().append("Method_3");
         $('.container').empty().append("" +
             '<div id="v_msg_chart" style="width: 800px;height: 500px;"></div><div id="damping_chart" style="width: 800px;height: 500px;"></div>'+
             '<div id="frequency_chart" style="width: 800px;height: 500px;"></div><div id="modeshape_chart" style="width: 800px;height: 500px;"></div>')

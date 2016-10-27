@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>数据模拟DEMO</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header containerName">Dashboard</h1>
             <div class="table-responsive container">
 
             </div>

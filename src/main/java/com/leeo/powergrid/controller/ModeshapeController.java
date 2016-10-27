@@ -1,5 +1,6 @@
 package com.leeo.powergrid.controller;
 
+import com.leeo.powergrid.PageResult;
 import com.leeo.powergrid.bean.Complex;
 import com.leeo.powergrid.request.DataRequest;
 import com.leeo.powergrid.service.DataService;
@@ -25,7 +26,7 @@ public class ModeshapeController {
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
-    public List<List<Double>> getData(DataRequest request) {
+    public PageResult getData(DataRequest request) {
         Complex[][] modeShapeData = dataService.getModeShapeData(request.getName());
         List<List<Double>> result = new ArrayList<>();
         for (Complex[] x : modeShapeData) {
@@ -37,7 +38,7 @@ public class ModeshapeController {
                 result.add(value);
             }
         }
-        return result.subList(1,13);
+        return new PageResult(request.getNextPage(),result.subList(0,request.getPageIndex()));
     }
 
     private double[] transferPolarCoordinates(double x, double y) {

@@ -1,5 +1,6 @@
 package com.leeo.powergrid.controller;
 
+import com.leeo.powergrid.PageResult;
 import com.leeo.powergrid.request.DataRequest;
 import com.leeo.powergrid.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class FrequencyController {
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
-    public List<Double> getData(DataRequest dampingRequest) {
-        return dataService.getFrequencyData(dampingRequest.getName());
+    public PageResult getData(DataRequest request) {
+        List<Double> result = dataService.getFrequencyData(request.getName());
+        return new PageResult(request.getNextPage(),result.subList(0,request.getPageIndex()));
     }
 }

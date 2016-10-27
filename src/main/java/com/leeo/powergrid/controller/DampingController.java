@@ -1,5 +1,6 @@
 package com.leeo.powergrid.controller;
 
+import com.leeo.powergrid.PageResult;
 import com.leeo.powergrid.request.DataRequest;
 import com.leeo.powergrid.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +25,10 @@ public class DampingController {
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
-    public List<Double> getData(DataRequest dampingRequest) {
-        return dataService.getDampingData(dampingRequest.getName());
+    public PageResult getData(DataRequest dampingRequest) {
+
+        List<Double> dampingData = dataService.getDampingData(dampingRequest.getName());
+
+        return new PageResult(dampingRequest.getNextPage(),dampingData.subList(0, dampingRequest.getPageIndex()));
     }
 }

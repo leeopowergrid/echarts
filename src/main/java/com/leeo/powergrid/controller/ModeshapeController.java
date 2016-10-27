@@ -47,7 +47,7 @@ public class ModeshapeController {
         return result;
     }
 
-    public double calculateAngle(double x, double y) {
+    private double calculateAngle(double x, double y) {
         double tan = Math.abs(Math.abs(y) / Math.abs(x));
         double angle = Math.toDegrees(Math.atan(tan));
         double baseAngle = 0;
@@ -65,12 +65,6 @@ public class ModeshapeController {
 
     private double calculateHypotenuse(double x, double y) {
         return Math.sqrt(x * x + y * y);
-    }
-
-    public static void main(String[] args) {
-        ModeshapeController controller = new ModeshapeController();
-        System.out.println(controller.calculateAngle(-3, -4));
-        System.out.println(controller.calculateHypotenuse(3, 4));
     }
 
 }

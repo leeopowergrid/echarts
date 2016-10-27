@@ -23,7 +23,6 @@
 <div id="modeshape_chart" style="width: 800px;height:400px;"></div>
 <br>
 <script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
     var vMsg_Chart = echarts.init(document.getElementById('v_msg_chart'));
 
     var damping_chart = echarts.init(document.getElementById('damping_chart'));

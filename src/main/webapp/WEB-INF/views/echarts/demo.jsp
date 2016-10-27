@@ -14,7 +14,7 @@
     <script type="text/javascript" src="/static/jquery/jquery-3.0.0.js"></script>
 </head>
 <body>
-<div id="line_chart" style="width: 600px;height:400px;"></div>
+<div id="line_chart" style="width: 1800px;height:300px;"></div>
 <br>
 <div id="axis_chart" style="width: 600px;height:400px;"></div>
 <script type="text/javascript">
@@ -22,167 +22,159 @@
     var lineChart = echarts.init(document.getElementById('line_chart'));
     var axisChart = echarts.init(document.getElementById('axis_chart'));
 
-    var base = +new Date(2014, 9, 3);
-    var oneDay = 24 * 3600 * 1000;
-    var date = [];
-
-    var data = [Math.random() * 150];
-    var now = new Date(base);
-
-    function addData(shift) {
-        now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
-        date.push(now);
-        data.push((Math.random() - 0.4) * 10 + data[data.length - 1]);
-
-        if (shift) {
-            date.shift();
-            data.shift();
-        }
-
-        now = new Date(+new Date(now) + oneDay);
+    var axis_x = [];
+    for (var i = 1; i < 20000; i++) {
+        axis_x.push(i);
     }
 
-    for (var i = 1; i < 100; i++) {
-        addData();
-    }
-
-
+    option = {
+        title: {
+            text: '过去5分钟变电站数据',
+            subtext: '数据展示模拟'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['成都','德阳','内江','江油']
+        },
+        toolbox: {
+            show: true
+//            feature: {
+//                dataZoom: {
+//                    yAxisIndex: 'none'
+//                },
+//                dataView: {readOnly: false},
+//                magicType: {type: ['line', 'bar']},
+//                restore: {},
+//                saveAsImage: {}
+//            }
+        },
+        dataZoom: [
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                type: 'inside',
+                realtime: true,
+                start: 0,
+                end: 100
+            }
+        ],
+        xAxis:  {
+            type: 'category',
+            boundaryGap: false,
+            data: axis_x
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name:'成都',
+                type:'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data:[],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name:'德阳',
+                type:'line',
+                data:[],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name:'内江',
+                type:'line',
+                data:[],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name:'江油',
+                type:'line',
+                data:[],
+                markPoint: {
+                    data: [
+                        {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                    ]
+                }
+            }
+        ]
+    };
+    lineChart.setOption(option);
+    lineChart.showLoading();
     timeTicket = setInterval(function () {
         $.ajax({
             type:"GET",
             url:"/V_Mag/get?name=V_Mag1",
             contentType:"application/json",
             success:function(data){
-                var axis_x = [];
-                for (var i = 1; i < 20000; i++) {
-                    axis_x.push(i);
-                }
                 var axis_y = eval(data);
-                option = {
-                    title: {
-                        text: '未来一周气温变化',
-                        subtext: '纯属虚构'
-                    },
-                    tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data:['最高气温','最低气温']
-                    },
-                    toolbox: {
-                        show: true,
-                        feature: {
-                            dataZoom: {
-                                yAxisIndex: 'none'
-                            },
-                            dataView: {readOnly: false},
-                            magicType: {type: ['line', 'bar']},
-                            restore: {},
-                            saveAsImage: {}
-                        }
-                    },
-                    xAxis:  {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: axis_x
-                    },
-                    yAxis: {
-                        type: 'value'
-                    },
+                lineChart.hideLoading();
+                lineChart.setOption({
                     series: [
                         {
-                            name:'最高气温',
-                            type:'line',
-                            data:axis_y[0],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            },
-                            markLine: {
-                                data: [
-                                    {type: 'average', name: '平均值'}
-                                ]
-                            }
+                            // 根据名字对应到相应的系列
+                            name: '成都',
+                            data: axis_y[0]
                         },
                         {
-                            name:'气温',
-                            type:'line',
-                            data:axis_y[1],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            },
-                            markLine: {
-                                data: [
-                                    {type: 'average', name: '平均值'}
-                                ]
-                            }
+                            name: '德阳',
+                            data: axis_y[1]
                         },
                         {
-                            name:'高气',
-                            type:'line',
-                            data:axis_y[2],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            },
-                            markLine: {
-                                data: [
-                                    {type: 'average', name: '平均值'}
-                                ]
-                            }
+                            name: '内江',
+                            data: axis_y[2]
                         },
                         {
-                            name:'最低',
-                            type:'line',
-                            data:axis_y[3],
-                            markPoint: {
-                                data: [
-                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                                ]
-                            },
-                            markLine: {
-                                data: [
-                                    {type: 'average', name: '平均值'},
-                                    [{
-                                        symbol: 'none',
-                                        x: '90%',
-                                        yAxis: 'max'
-                                    }, {
-                                        symbol: 'circle',
-                                        label: {
-                                            normal: {
-                                                position: 'start',
-                                                formatter: '最大值'
-                                            }
-                                        },
-                                        type: 'max',
-                                        name: '最高点'
-                                    }]
-                                ]
-                            }
+                            name: '江油',
+                            data: axis_y[3]
                         }
                     ]
-                };
-                lineChart.setOption(option);
+                });
             }
         });
-    }, 15000);
+    }, 5000);
 
 
     var axisData = [];
 
-//    for (var i = 0; i <= 100; i++) {
-//        var theta = i / 100 * 360;
-//        var r = 5 * (1 + Math.sin(theta / 180 * Math.PI));
-//        axisData.push([r, theta]);
-//    }
+    //    for (var i = 0; i <= 100; i++) {
+    //        var theta = i / 100 * 360;
+    //        var r = 5 * (1 + Math.sin(theta / 180 * Math.PI));
+    //        axisData.push([r, theta]);
+    //    }
 
     console.log(axisData);
 

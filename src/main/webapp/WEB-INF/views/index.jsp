@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -9,7 +10,7 @@
     <link rel="icon" href="https://learning.mozilla.org/img/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet"
           href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,700,600italic,700italic,800,800italic"/>
-    <link rel="stylesheet" href="/static/bootstap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/static/css/tabzilla.css"/>
     <link rel="stylesheet" href="/static/css/mofo-ui.css"/>

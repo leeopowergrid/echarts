@@ -41,18 +41,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">数据模拟</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
         </div>
     </div>
 </nav>
@@ -61,7 +52,6 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview</a></li>
                 <li><a class="method_1">方法1</a></li>
                 <li><a class="method_2">方法2</a></li>
                 <li><a class="method_3">方法3</a></li>
@@ -86,5 +76,8 @@
 <script src="/static/js/method_1.js"></script>
 <script src="/static/js/method_2.js"></script>
 <script src="/static/js/method_3.js"></script>
+<script>
+    $(".method_1").click();
+</script>
 </body>
 </html>

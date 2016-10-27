@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>数据模拟DEMO</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/static/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -41,18 +41,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">数据模拟</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
         </div>
     </div>
 </nav>
@@ -61,19 +52,19 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview</a></li>
-                <li><a class="method_1">方法1</a></li>
-                <li><a class="method_2">方法2</a></li>
-                <li><a class="method_3">方法3</a></li>
+                <li><a class="method" onclick="btnClick('ERA_RD')">ERA_RD</a></li>
+                <li><a class="method" onclick="btnClick('ERA_NEXT')">ERA_NEXT</a></li>
+                <li><a class="method" onclick="btnClick('SWRDITDAmbient')">SWRDITDAmbient</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header containerName">ERA_RD</h1>
             <div class="table-responsive container">
 
             </div>
         </div>
     </div>
+
 </div>
 
 <!-- Bootstrap core JavaScript
@@ -83,8 +74,11 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="/static/bootstrap/bootstrap.min.js"></script>
 <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
-<script src="/static/js/method_1.js"></script>
-<script src="/static/js/method_2.js"></script>
-<script src="/static/js/method_3.js"></script>
+<script src="/static/js/method.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        btnClick('ERA_RD');
+    }
+</script>
 </body>
 </html>

@@ -1,15 +1,22 @@
-function btnClick() {
-    $('.method_2').click(function () {
-        $('.container').empty().append("" +
-            '<div id="v_msg_chart" style="width: 800px;height: 500px;"></div><div id="damping_chart" style="width: 800px;height: 500px;"></div>'+
-            '<div id="frequency_chart" style="width: 800px;height: 500px;"></div><div id="modeshape_chart" style="width: 800px;height: 500px;"></div>')
-        renderTestChart();
-    })
+function btnClick(methodName) {
+    $('.containerName').empty().append(methodName);
+    $('.container').empty().append("" +
+        '<div id="v_msg_chart" style="width: 800px;height: 500px;"></div>' +
+        '<div id="damping_chart" style="width: 800px;height: 500px;"></div>' +
+        '<div id="frequency_chart" style="width: 800px;height: 500px;"></div>' +
+        '<div id="modeshape_chart" style="width: 800px;height: 500px;"></div>')
+    var fileName;
+    if (methodName == "ERA_RD") {
+        fileName = ""
+    } else if (methodName == "ERA_NEXT") {
+        fileName = ""
+    } else if (methodName == "SWRDITDAmbient") {
+        fileName = ""
+    }
+    renderTestChart(fileName);
 }
 
-btnClick();
-
-function renderTestChart() {
+function renderTestChart(fileName) {
     // 基于准备好的dom，初始化echarts实例
     var vMsg_Chart = echarts.init(document.getElementById('v_msg_chart'));
 
@@ -26,22 +33,21 @@ function renderTestChart() {
 
     var axis_x_damping = [];
 
-    for(var i=0;i<=31;i++){
+    for (var i = 0; i <= 31; i++) {
         axis_x_damping.push(i);
     }
 
     var pageIndex = 1;
 
-//    lineChart.setOption(option);
     vMsg_Chart.showLoading();
     timeTicket = setInterval(function () {
         //绘制参数
         $.ajax({
-            type:"GET",
-            url:"/V_Mag/get?name=V_Mag&pageIndex="+pageIndex,
-            contentType:"application/json",
-            success:function(data){
-                pageIndex= data.pageIndex;
+            type: "GET",
+            url: "/V_Mag/get?name=V_Mag&pageIndex=" + pageIndex,
+            contentType: "application/json",
+            success: function (data) {
+                pageIndex = data.pageIndex;
                 var axis_y = eval(data.result);
                 vMsg_Chart.hideLoading();
                 var option = {
@@ -53,7 +59,7 @@ function renderTestChart() {
                         trigger: 'axis'
                     },
                     legend: {
-                        data:['成都','德阳','内江','江油']
+                        data: ['成都', '德阳', '内江', '江油']
                     },
                     toolbox: {
                         show: true
@@ -84,7 +90,7 @@ function renderTestChart() {
                             end: 100
                         }
                     ],
-                    xAxis:  {
+                    xAxis: {
                         type: 'category',
                         boundaryGap: false,
                         data: axis_x
@@ -94,11 +100,11 @@ function renderTestChart() {
                     },
                     series: [
                         {
-                            name:'成都',
-                            type:'line',
+                            name: '成都',
+                            type: 'line',
                             showSymbol: false,
                             hoverAnimation: false,
-                            data:axis_y[0],
+                            data: axis_y[0],
                             markPoint: {
                                 data: [
                                     {type: 'max', name: '最大值'},
@@ -107,9 +113,9 @@ function renderTestChart() {
                             }
                         },
                         {
-                            name:'德阳',
-                            type:'line',
-                            data:axis_y[1],
+                            name: '德阳',
+                            type: 'line',
+                            data: axis_y[1],
                             markPoint: {
                                 data: [
                                     {type: 'max', name: '最大值'},
@@ -118,9 +124,9 @@ function renderTestChart() {
                             }
                         },
                         {
-                            name:'内江',
-                            type:'line',
-                            data:axis_y[2],
+                            name: '内江',
+                            type: 'line',
+                            data: axis_y[2],
                             markPoint: {
                                 data: [
                                     {type: 'max', name: '最大值'},
@@ -129,9 +135,9 @@ function renderTestChart() {
                             }
                         },
                         {
-                            name:'江油',
-                            type:'line',
-                            data:axis_y[3],
+                            name: '江油',
+                            type: 'line',
+                            data: axis_y[3],
                             markPoint: {
                                 data: [
                                     {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
@@ -145,10 +151,10 @@ function renderTestChart() {
         });
         //绘制damping
         $.ajax({
-            type:"GET",
-            url:"/damping/get?name=damping2&pageIndex="+pageIndex,
-            contentType:"application/json",
-            success:function(data){
+            type: "GET",
+            url: "/damping/get?name=damping1&pageIndex=" + pageIndex,
+            contentType: "application/json",
+            success: function (data) {
                 pageIndex = data.pageIndex;
                 console.log(JSON.stringify(data));
                 var damping_option = {
@@ -186,10 +192,10 @@ function renderTestChart() {
         });
         //绘制frequency
         $.ajax({
-            type:"GET",
-            url:"/frequency/get?name=frequency2&pageIndex="+pageIndex,
-            contentType:"application/json",
-            success:function(data){
+            type: "GET",
+            url: "/frequency/get?name=frequency1&pageIndex=" + pageIndex,
+            contentType: "application/json",
+            success: function (data) {
                 pageIndex = data.pageIndex;
                 console.log(JSON.stringify(data));
                 var frequency_option = {
@@ -227,10 +233,10 @@ function renderTestChart() {
         });
         //绘制modeshape
         $.ajax({
-            type:"GET",
-            url:"/modeshape/get?name=modeshape2&pageIndex="+pageIndex,
-            contentType:"application/json",
-            success:function(data){
+            type: "GET",
+            url: "/modeshape/get?name=modeshape1&pageIndex=" + pageIndex,
+            contentType: "application/json",
+            success: function (data) {
                 pageIndex = data.pageIndex;
                 console.log(JSON.stringify(data));
                 var axisOption = {
@@ -251,8 +257,7 @@ function renderTestChart() {
                         type: 'value',
                         startAngle: 0
                     },
-                    radiusAxis: {
-                    },
+                    radiusAxis: {},
                     series: [{
                         coordinateSystem: 'polar',
                         name: 'line',
@@ -264,4 +269,5 @@ function renderTestChart() {
             }
         });
     }, 5000);
+
 }

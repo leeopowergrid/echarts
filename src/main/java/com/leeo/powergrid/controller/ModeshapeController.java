@@ -28,17 +28,32 @@ public class ModeshapeController {
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
     public PageResult getData(DataRequest request) {
         Complex[][] modeShapeData = dataService.getModeShapeData(request.getName());
-        List<List<Double>> result = new ArrayList<>();
+        List<List<Double>> data = new ArrayList<>();
         for (Complex[] x : modeShapeData) {
             for (Complex y : x) {
                 List<Double> value = new ArrayList<>();
                 double[] values = transferPolarCoordinates(y.getReal(), y.getImaginary());
                 value.add(values[0]);
                 value.add(values[1]);
-                result.add(value);
+                data.add(value);
             }
         }
-        return new PageResult(request.getNextPage(),result.subList(0,request.getPageIndex()));
+
+        int start = (request.getPageIndex()-1)*request.getPageSize();
+        int end = start+12;
+
+        List<List<List<Double>>> result = new ArrayList<>();
+        for (int i=start;i<end;i++){
+            List<List<Double>> first = new ArrayList<>();
+            List<Double> second = new ArrayList<>();
+            second.add(0d);
+            second.add(0d);
+            first.add(second);
+            first.addAll(data.subList(i,i+1));
+            result.add(first);
+        }
+
+        return new PageResult(request.getNextPage(),result);
     }
 
     private double[] transferPolarCoordinates(double x, double y) {

@@ -99,10 +99,16 @@
                     xAxis:  {
                         type: 'category',
                         boundaryGap: false,
+                        splitLine: {
+                            show: true
+                        },
                         data: axis_x
                     },
                     yAxis: {
                         type: 'value',
+                        splitLine: {
+                            show: true
+                        },
                         max:21.5,
                         min:17
                     },

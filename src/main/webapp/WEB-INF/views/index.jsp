@@ -11,8 +11,6 @@
     <!--bootstrap库-->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="/static/js/bootstrap/bootstrap.min.js"></script>
-    <!--echarts库 -->
-    <script src="/static/js/echarts/echarts.min.js"></script>
     <!--[if lt IE 9]>
     <script src="/static/js/bootstrap/html5shiv.min.js"></script>
     <script src="/static/js/bootstrap/respond.min.js"></script>
@@ -33,8 +31,13 @@
     <link href="/static/css/default.css" rel="stylesheet" type="text/css"/>
     <!--主要写的js代码-->
     <script src="/static/js/default.js" type="text/javascript"></script>
+    <!--echarts库 -->
+    <script src="/static/js/echarts/echarts.min.js"></script>
     <!--方法调用js代码 -->
     <script src="/static/js/method.js" type="text/javascript"></script>
+
+    <title>数据模拟DEMO</title>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -69,13 +72,16 @@
     <div class="maincontent row">
         <!--我是主要内容 start-->
         <ul class="breadcrumb">
-            <li class="active containerName">Chart库</li>
+            <li class="active content-header contentName">ERA_RD</li>
         </ul>
         <div class="col-sm-12">
             <!--flot start-->
             <div class="row" id="chart-flot">
-                <div class="container">
-
+                <div class="content">
+                    <div id="v_msg_chart" class="center-block" style="width: 1000px;height: 500px"></div>
+                    <div id="damping_chart" class="center-block" style="width: 1000px;height: 500px"></div>
+                    <div id="frequency_chart" class="center-block" style="width: 1000px;height: 500px"></div>
+                    <div id="modeshape_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                 </div>
             </div>
             <!--flot end-->
@@ -84,10 +90,8 @@
     </div>
 </div>
 <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
-<script type="text/javascript">
-    window.onload = function () {
-        btnClick('ERA_RD');
-    }
+<script>
+    $('.era_rd').click();
 </script>
 </body>
 </html>

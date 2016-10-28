@@ -60,13 +60,13 @@
 </nav>
 <div class="container-fluid all">
     <div class="sidebar">
-        <ul class="nav">
+        <ul class="nav" id="nav_list">
             <li class="era_rd active" onclick="btnClick('ERA_RD')"><a>ERA_RD</a></li>
             <li class="era_next" onclick="btnClick('ERA_NEXT')"><a>ERA_NEXT</a></li>
-            <li class="swritdambient" onclick="btnClick('ERA_NEXT')"><a>SWRDITDAmbient</a></li>
+            <li class="swrditdambient" onclick="btnClick('SWRDITDAmbient')"><a>SWRDITDAmbient</a></li>
         </ul>
     </div>
-    <div class="maincontent row form-horizontal">
+    <div class="maincontent row">
         <!--我是主要内容 start-->
         <ul class="breadcrumb">
             <li class="active containerName">Chart库</li>

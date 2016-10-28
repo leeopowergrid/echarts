@@ -1,10 +1,17 @@
 function btnClick(methodName) {
+
+    $('#nav_list li').removeClass('active');
+
+    $("#nav_list ." + methodName.toLowerCase()).addClass('active');
+
     $('.containerName').empty().append(methodName);
+
+
     $('.container').empty().append("" +
-        '<div id="v_msg_chart" style="width: 800px;height: 500px;"></div>' +
-        '<div id="damping_chart" style="width: 800px;height: 500px;"></div>' +
-        '<div id="frequency_chart" style="width: 800px;height: 500px;"></div>' +
-        '<div id="modeshape_chart" style="width: 800px;height: 500px;"></div>')
+        '<div id="v_msg_chart" style="width: 1000px;height: 500px;"></div>' +
+        '<div id="damping_chart" style="width: 1000px;height: 500px;"></div>' +
+        '<div id="frequency_chart" style="width: 1000px;height: 500px;"></div>' +
+        '<div id="modeshape_chart" style="width: 1000px;height: 500px;"></div>')
     var fileName;
     if (methodName == "ERA_RD") {
         fileName = "1"
@@ -150,7 +157,7 @@ function renderTestChart(fileName) {
     //绘制damping
     $.ajax({
         type: "GET",
-        url: "/damping/get?name=damping"+fileName+"&pageIndex=" + pageIndex,
+        url: "/damping/get?name=damping" + fileName + "&pageIndex=" + pageIndex,
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
@@ -191,7 +198,7 @@ function renderTestChart(fileName) {
     //绘制frequency
     $.ajax({
         type: "GET",
-        url: "/frequency/get?name=frequency"+fileName+"&pageIndex=" + pageIndex,
+        url: "/frequency/get?name=frequency" + fileName + "&pageIndex=" + pageIndex,
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
@@ -232,7 +239,7 @@ function renderTestChart(fileName) {
     //绘制modeshape
     $.ajax({
         type: "GET",
-        url: "/modeshape/get?name=modeshape"+fileName+"&pageIndex=" + pageIndex,
+        url: "/modeshape/get?name=modeshape" + fileName + "&pageIndex=" + pageIndex,
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
@@ -243,7 +250,7 @@ function renderTestChart(fileName) {
                     text: '极坐标双数值轴'
                 },
                 legend: {
-                    data: ['变电站1','变电站2','变电站3','变电站4','变电站5','变电站6','变电站7','变电站8','变电站9','变电站10','变电站11','变电站12']
+                    data: ['变电站1', '变电站2', '变电站3', '变电站4', '变电站5', '变电站6', '变电站7', '变电站8', '变电站9', '变电站10', '变电站11', '变电站12']
                 },
                 polar: {},
                 tooltip: {
@@ -292,32 +299,32 @@ function renderTestChart(fileName) {
                         name: '变电站6',
                         type: 'line',
                         data: eval(data.result)[5]
-                    },{
+                    }, {
                         coordinateSystem: 'polar',
                         name: '变电站7',
                         type: 'line',
                         data: eval(data.result)[6]
-                    },{
+                    }, {
                         coordinateSystem: 'polar',
                         name: '变电站8',
                         type: 'line',
                         data: eval(data.result)[7]
-                    },{
+                    }, {
                         coordinateSystem: 'polar',
                         name: '变电站9',
                         type: 'line',
                         data: eval(data.result)[8]
-                    },{
+                    }, {
                         coordinateSystem: 'polar',
                         name: '变电站10',
                         type: 'line',
                         data: eval(data.result)[9]
-                    },{
+                    }, {
                         coordinateSystem: 'polar',
                         name: '变电站11',
                         type: 'line',
                         data: eval(data.result)[10]
-                    },{
+                    }, {
                         coordinateSystem: 'polar',
                         name: '变电站12',
                         type: 'line',
@@ -446,7 +453,7 @@ function renderTestChart(fileName) {
         //绘制damping
         $.ajax({
             type: "GET",
-            url: "/damping/get?name=damping"+fileName+"&pageIndex=" + pageIndex,
+            url: "/damping/get?name=damping" + fileName + "&pageIndex=" + pageIndex,
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
@@ -487,7 +494,7 @@ function renderTestChart(fileName) {
         //绘制frequency
         $.ajax({
             type: "GET",
-            url: "/frequency/get?name=frequency"+fileName+"&pageIndex=" + pageIndex,
+            url: "/frequency/get?name=frequency" + fileName + "&pageIndex=" + pageIndex,
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
@@ -528,7 +535,7 @@ function renderTestChart(fileName) {
         //绘制modeshape
         $.ajax({
             type: "GET",
-            url: "/modeshape/get?name=modeshape"+fileName+"&pageIndex=" + pageIndex,
+            url: "/modeshape/get?name=modeshape" + fileName + "&pageIndex=" + pageIndex,
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
@@ -539,7 +546,7 @@ function renderTestChart(fileName) {
                         text: '极坐标双数值轴'
                     },
                     legend: {
-                        data: ['变电站1','变电站2','变电站3','变电站4','变电站5','变电站6','变电站7','变电站8','变电站9','变电站10','变电站11','变电站12']
+                        data: ['变电站1', '变电站2', '变电站3', '变电站4', '变电站5', '变电站6', '变电站7', '变电站8', '变电站9', '变电站10', '变电站11', '变电站12']
                     },
                     polar: {},
                     tooltip: {
@@ -588,32 +595,32 @@ function renderTestChart(fileName) {
                             name: '变电站6',
                             type: 'line',
                             data: eval(data.result)[5]
-                        },{
+                        }, {
                             coordinateSystem: 'polar',
                             name: '变电站7',
                             type: 'line',
                             data: eval(data.result)[6]
-                        },{
+                        }, {
                             coordinateSystem: 'polar',
                             name: '变电站8',
                             type: 'line',
                             data: eval(data.result)[7]
-                        },{
+                        }, {
                             coordinateSystem: 'polar',
                             name: '变电站9',
                             type: 'line',
                             data: eval(data.result)[8]
-                        },{
+                        }, {
                             coordinateSystem: 'polar',
                             name: '变电站10',
                             type: 'line',
                             data: eval(data.result)[9]
-                        },{
+                        }, {
                             coordinateSystem: 'polar',
                             name: '变电站11',
                             type: 'line',
                             data: eval(data.result)[10]
-                        },{
+                        }, {
                             coordinateSystem: 'polar',
                             name: '变电站12',
                             type: 'line',
@@ -624,7 +631,7 @@ function renderTestChart(fileName) {
             }
         });
     }, 10000);
-    for(var i =0;i<timeTicket;i++){
+    for (var i = 0; i < timeTicket; i++) {
         window.clearInterval(i);
     }
 

@@ -336,7 +336,7 @@ function renderTestChart(fileName) {
         series: [{
             name: '模拟数据',
             type: 'line',
-            showSymbol: false,
+            showSymbol: true,
             hoverAnimation: false,
             data: []
         }]
@@ -369,7 +369,7 @@ function renderTestChart(fileName) {
         series: [{
             name: '模拟数据',
             type: 'line',
-            showSymbol: false,
+            showSymbol: true,
             hoverAnimation: false,
             data: []
         }]

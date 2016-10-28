@@ -48,7 +48,7 @@ function renderTestChart(fileName) {
     var modeShape_Chart = echarts.init(document.getElementById('modeshape_chart'));
 
     var axis_x = [];//参数X轴
-    for (var i = 1; i <= 400; i++) {
+    for (var i = 1; i <= 20010; i++) {
         axis_x.push(i);
     }
 
@@ -71,14 +71,20 @@ function renderTestChart(fileName) {
             vMsg_Chart.hideLoading();
             var option = {
                 title: {
-                    text: '过去5分钟变电站数据',
-                    subtext: '数据展示模拟'
+                    text: '变电站',
+                    subtext: '数据采集'
                 },
                 tooltip: {
                     trigger: 'axis'
                 },
                 legend: {
-                    data: ['成都', '德阳', '内江', '江油']
+                    data: ['变电站1', '变电站2','', '变电站3', '变电站4','','变电站5', '变电站6','',
+                        '变电站7', '变电站8','','变电站9', '变电站10','', '变电站11', '变电站12'],
+                    top:'top',
+                    orient:'vertical',
+                    left:'center',
+                    itemGap:20,
+                    itemWidth:15
                 },
                 toolbox: {
                     show: true
@@ -112,14 +118,22 @@ function renderTestChart(fileName) {
                 xAxis: {
                     type: 'category',
                     boundaryGap: false,
-                    data: axis_x
+                    data: axis_x,
+                    splitLine: {
+                        show: true
+                    }
                 },
                 yAxis: {
-                    type: 'value'
+                    type: 'value',
+                    max:21,
+                    min:19,
+                    splitLine: {
+                        show: true
+                    }
                 },
                 series: [
                     {
-                        name: '成都',
+                        name: '变电站1',
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
@@ -132,7 +146,7 @@ function renderTestChart(fileName) {
                         }
                     },
                     {
-                        name: '德阳',
+                        name: '变电站2',
                         type: 'line',
                         data: axis_y[1],
                         markPoint: {
@@ -143,7 +157,7 @@ function renderTestChart(fileName) {
                         }
                     },
                     {
-                        name: '内江',
+                        name: '变电站3',
                         type: 'line',
                         data: axis_y[2],
                         markPoint: {
@@ -154,9 +168,99 @@ function renderTestChart(fileName) {
                         }
                     },
                     {
-                        name: '江油',
+                        name: '变电站4',
                         type: 'line',
                         data: axis_y[3],
+                        markPoint: {
+                            data: [
+                                {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站5',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: axis_y[4],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站6',
+                        type: 'line',
+                        data: axis_y[5],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站7',
+                        type: 'line',
+                        data: axis_y[6],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站8',
+                        type: 'line',
+                        data: axis_y[7],
+                        markPoint: {
+                            data: [
+                                {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站9',
+                        type: 'line',
+                        showSymbol: false,
+                        hoverAnimation: false,
+                        data: axis_y[8],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站10',
+                        type: 'line',
+                        data: axis_y[9],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站11',
+                        type: 'line',
+                        data: axis_y[10],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '变电站12',
+                        type: 'line',
+                        data: axis_y[11],
                         markPoint: {
                             data: [
                                 {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
@@ -178,7 +282,7 @@ function renderTestChart(fileName) {
             console.log(JSON.stringify(data));
             var damping_option = {
                 title: {
-                    text: '动态数据 + 时间坐标轴'
+                    text: 'damping'
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -219,7 +323,7 @@ function renderTestChart(fileName) {
             console.log(JSON.stringify(data));
             var frequency_option = {
                 title: {
-                    text: '动态数据 + 时间坐标轴'
+                    text: 'frequency'
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -261,10 +365,16 @@ function renderTestChart(fileName) {
             console.log(JSON.stringify(eval(data.result)[0]));
             var axisOption = {
                 title: {
-                    text: '极坐标双数值轴'
+                    text: 'modeshape'
                 },
                 legend: {
-                    data: ['变电站1', '变电站2', '变电站3', '变电站4', '变电站5', '变电站6', '变电站7', '变电站8', '变电站9', '变电站10', '变电站11', '变电站12']
+                    data: ['变电站1', '变电站2', '变电站3', '变电站4','', '变电站5', '变电站6',
+                        '变电站7', '变电站8','', '变电站9', '变电站10', '变电站11', '变电站12'],
+                    //top:'top',
+                    orient:'vertical',
+                    left:'right',
+                    itemGap:20,
+                    itemWidth:15
                 },
                 polar: {},
                 tooltip: {
@@ -278,6 +388,9 @@ function renderTestChart(fileName) {
                     startAngle: 0
                 },
                 radiusAxis: {},
+                grid:{
+                    top:'10%'
+                },
                 series: [{
                     coordinateSystem: 'polar',
                     name: '变电站1',
@@ -351,10 +464,6 @@ function renderTestChart(fileName) {
 
     vMsg_Chart.showLoading();
 
-    //if(timeTicket){
-    //    window.clearInterval(timeTicket);
-    //}
-
     var timeTicket = setInterval(function () {
         //绘制参数
         $.ajax({
@@ -367,13 +476,20 @@ function renderTestChart(fileName) {
                 vMsg_Chart.hideLoading();
                 var option = {
                     title: {
-                        text: '过去5分钟变电站数据'
+                        text: '变电站',
+                        subtext: '数据采集'
                     },
                     tooltip: {
                         trigger: 'axis'
                     },
                     legend: {
-                        data: ['成都', '德阳', '内江', '江油']
+                        data: ['变电站1', '变电站2','', '变电站3', '变电站4','','变电站5', '变电站6','',
+                            '变电站7', '变电站8','','变电站9', '变电站10','', '变电站11', '变电站12'],
+                        top:'top',
+                        orient:'vertical',
+                        left:'center',
+                        itemGap:20,
+                        itemWidth:15
                     },
                     toolbox: {
                         show: true
@@ -407,14 +523,22 @@ function renderTestChart(fileName) {
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
-                        data: axis_x
+                        data: axis_x,
+                        splitLine: {
+                            show: true
+                        }
                     },
                     yAxis: {
-                        type: 'value'
+                        type: 'value',
+                        max:21,
+                        min:19,
+                        splitLine: {
+                            show: true
+                        }
                     },
                     series: [
                         {
-                            name: '成都',
+                            name: '变电站1',
                             type: 'line',
                             showSymbol: false,
                             hoverAnimation: false,
@@ -427,7 +551,7 @@ function renderTestChart(fileName) {
                             }
                         },
                         {
-                            name: '德阳',
+                            name: '变电站2',
                             type: 'line',
                             data: axis_y[1],
                             markPoint: {
@@ -438,7 +562,7 @@ function renderTestChart(fileName) {
                             }
                         },
                         {
-                            name: '内江',
+                            name: '变电站3',
                             type: 'line',
                             data: axis_y[2],
                             markPoint: {
@@ -449,9 +573,99 @@ function renderTestChart(fileName) {
                             }
                         },
                         {
-                            name: '江油',
+                            name: '变电站4',
                             type: 'line',
                             data: axis_y[3],
+                            markPoint: {
+                                data: [
+                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站5',
+                            type: 'line',
+                            showSymbol: false,
+                            hoverAnimation: false,
+                            data: axis_y[4],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站6',
+                            type: 'line',
+                            data: axis_y[5],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站7',
+                            type: 'line',
+                            data: axis_y[6],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站8',
+                            type: 'line',
+                            data: axis_y[7],
+                            markPoint: {
+                                data: [
+                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站9',
+                            type: 'line',
+                            showSymbol: false,
+                            hoverAnimation: false,
+                            data: axis_y[8],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站10',
+                            type: 'line',
+                            data: axis_y[9],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站11',
+                            type: 'line',
+                            data: axis_y[10],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
+                                ]
+                            }
+                        },
+                        {
+                            name: '变电站12',
+                            type: 'line',
+                            data: axis_y[11],
                             markPoint: {
                                 data: [
                                     {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
@@ -473,7 +687,7 @@ function renderTestChart(fileName) {
                 console.log(JSON.stringify(data));
                 var damping_option = {
                     title: {
-                        text: '动态数据 + 时间坐标轴'
+                        text: 'damping'
                     },
                     tooltip: {
                         trigger: 'axis',
@@ -514,7 +728,7 @@ function renderTestChart(fileName) {
                 console.log(JSON.stringify(data));
                 var frequency_option = {
                     title: {
-                        text: '动态数据 + 时间坐标轴'
+                        text: 'frequency'
                     },
                     tooltip: {
                         trigger: 'axis',
@@ -556,10 +770,16 @@ function renderTestChart(fileName) {
                 //console.log(JSON.stringify(eval(data.result)[0]));
                 var axisOption = {
                     title: {
-                        text: '极坐标双数值轴'
+                        text: 'modeshape'
                     },
                     legend: {
-                        data: ['变电站1', '变电站2', '变电站3', '变电站4', '变电站5', '变电站6', '变电站7', '变电站8', '变电站9', '变电站10', '变电站11', '变电站12']
+                        data: ['变电站1', '变电站2', '变电站3', '变电站4','', '变电站5', '变电站6',
+                            '变电站7', '变电站8','', '变电站9', '变电站10', '变电站11', '变电站12'],
+                        //top:'top',
+                        orient:'vertical',
+                        left:'right',
+                        itemGap:20,
+                        itemWidth:15
                     },
                     polar: {},
                     tooltip: {

@@ -59,6 +59,420 @@ function renderTestChart(fileName) {
     }
 
     var pageIndex = 1;
+    var option = {
+        title: {
+            text: '变电站',
+            subtext: '数据采集'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['变电站1', '变电站2', '', '变电站3', '变电站4', '', '变电站5', '变电站6', '',
+                '变电站7', '变电站8', '', '变电站9', '变电站10', '', '变电站11', '变电站12'],
+            top: 'top',
+            orient: 'vertical',
+            left: 'center',
+            itemGap: 20,
+            itemWidth: 15
+        },
+        toolbox: {
+            show: true
+        },
+        dataZoom: [
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                show: true,
+                realtime: true,
+                start: 0,
+                end: 100
+            },
+            {
+                type: 'inside',
+                realtime: true,
+                start: 0,
+                end: 100
+            }
+        ],
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: axis_x,
+            splitLine: {
+                show: true
+            }
+        },
+        yAxis: {
+            type: 'value',
+            max: 22,
+            min: 12
+        },
+        series: [
+            {
+                name: '变电站1',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站2',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站3',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站4',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站5',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站6',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站7',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站8',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站9',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data:[],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站10',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站11',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            },
+            {
+                name: '变电站12',
+                type: 'line',
+                data: [],
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            }
+        ]
+    };
+
+    vMsg_Chart.setOption(option);
+    vMsg_Chart.showLoading();
+
+    var damping_option = {
+        title: {
+            text: 'damping'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                animation: false
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: axis_x_damping
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '100%'],
+            splitLine: {
+                show: false
+            }
+        },
+        series: [{
+            name: '模拟数据',
+            type: 'line',
+            showSymbol: false,
+            hoverAnimation: false,
+            data: []
+        }]
+    };
+
+    damping_chart.setOption(damping_option);
+
+    var frequency_option = {
+        title: {
+            text: 'frequency'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                animation: false
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: axis_x_damping
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '100%'],
+            splitLine: {
+                show: false
+            }
+        },
+        series: [{
+            name: '模拟数据',
+            type: 'line',
+            showSymbol: false,
+            hoverAnimation: false,
+            data: []
+        }]
+    };
+
+    frequency_chart.setOption(frequency_option);
+
+    var modeShapeOption = {
+        title: {
+            text: 'modeshape'
+        },
+        legend: {
+            data: ['变电站1', '变电站2', '变电站3', '变电站4', '', '变电站5', '变电站6',
+                '变电站7', '变电站8', '', '变电站9', '变电站10', '变电站11', '变电站12'],
+            //top:'top',
+            orient: 'vertical',
+            left: 'right',
+            itemGap: 20,
+            itemWidth: 15
+        },
+        polar: {},
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        angleAxis: {
+            type: 'value',
+            startAngle: 0
+        },
+        radiusAxis: {},
+        grid: {
+            top: '10%'
+        },
+        series: [{
+            coordinateSystem: 'polar',
+            name: '变电站1',
+            type: 'line',
+            data: []
+        },
+            {
+                coordinateSystem: 'polar',
+                name: '变电站2',
+                type: 'line',
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: '变电站3',
+                type: 'line',
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: '变电站4',
+                type: 'line',
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: '变电站5',
+                type: 'line',
+                data: []
+            },
+            {
+                coordinateSystem: 'polar',
+                name: '变电站6',
+                type: 'line',
+                data: []
+            }, {
+                coordinateSystem: 'polar',
+                name: '变电站7',
+                type: 'line',
+                data: []
+            }, {
+                coordinateSystem: 'polar',
+                name: '变电站8',
+                type: 'line',
+                data: []
+            }, {
+                coordinateSystem: 'polar',
+                name: '变电站9',
+                type: 'line',
+                data: []
+            }, {
+                coordinateSystem: 'polar',
+                name: '变电站10',
+                type: 'line',
+                data: []
+            }, {
+                coordinateSystem: 'polar',
+                name: '变电站11',
+                type: 'line',
+                data: []
+            }, {
+                coordinateSystem: 'polar',
+                name: '变电站12',
+                type: 'line',
+                data: []
+            }]
+    };
+    modeShape_Chart.setOption(modeShapeOption);
 
     //绘制参数
     $.ajax({
@@ -67,209 +481,47 @@ function renderTestChart(fileName) {
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
-            var axis_y = eval(data.result);
             vMsg_Chart.hideLoading();
-            var option = {
-                title: {
-                    text: '变电站',
-                    subtext: '数据采集'
-                },
-                tooltip: {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data: ['变电站1', '变电站2','', '变电站3', '变电站4','','变电站5', '变电站6','',
-                        '变电站7', '变电站8','','变电站9', '变电站10','', '变电站11', '变电站12'],
-                    top:'top',
-                    orient:'vertical',
-                    left:'center',
-                    itemGap:20,
-                    itemWidth:15
-                },
-                toolbox: {
-                    show: true
-                },
-                dataZoom: [
-                    {
-                        show: true,
-                        realtime: true,
-                        start: 0,
-                        end: 100
-                    },
-                    {
-                        show: true,
-                        realtime: true,
-                        start: 0,
-                        end: 100
-                    },
-                    {
-                        show: true,
-                        realtime: true,
-                        start: 0,
-                        end: 100
-                    },
-                    {
-                        type: 'inside',
-                        realtime: true,
-                        start: 0,
-                        end: 100
-                    }
-                ],
-                xAxis: {
-                    type: 'category',
-                    boundaryGap: false,
-                    data: axis_x,
-                    splitLine: {
-                        show: true
-                    }
-                },
-                yAxis: {
-                    type: 'value',
-                    max:21,
-                    min:19,
-                    splitLine: {
-                        show: true
-                    }
-                },
-                series: [
-                    {
-                        name: '变电站1',
-                        type: 'line',
-                        showSymbol: false,
-                        hoverAnimation: false,
-                        data: axis_y[0],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站2',
-                        type: 'line',
-                        data: axis_y[1],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站3',
-                        type: 'line',
-                        data: axis_y[2],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站4',
-                        type: 'line',
-                        data: axis_y[3],
-                        markPoint: {
-                            data: [
-                                {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站5',
-                        type: 'line',
-                        showSymbol: false,
-                        hoverAnimation: false,
-                        data: axis_y[4],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站6',
-                        type: 'line',
-                        data: axis_y[5],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站7',
-                        type: 'line',
-                        data: axis_y[6],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站8',
-                        type: 'line',
-                        data: axis_y[7],
-                        markPoint: {
-                            data: [
-                                {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站9',
-                        type: 'line',
-                        showSymbol: false,
-                        hoverAnimation: false,
-                        data: axis_y[8],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站10',
-                        type: 'line',
-                        data: axis_y[9],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站11',
-                        type: 'line',
-                        data: axis_y[10],
-                        markPoint: {
-                            data: [
-                                {type: 'max', name: '最大值'},
-                                {type: 'min', name: '最小值'}
-                            ]
-                        }
-                    },
-                    {
-                        name: '变电站12',
-                        type: 'line',
-                        data: axis_y[11],
-                        markPoint: {
-                            data: [
-                                {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                            ]
-                        }
-                    }
-                ]
-            };
-            vMsg_Chart.setOption(option);
+            vMsg_Chart.setOption({
+                series: [{
+                    // 根据名字对应到相应的系列
+                    name: '变电站1',
+                    data: eval(data.result)[0]
+                },{
+                    name: '变电站2',
+                    data: eval(data.result)[1]
+                },{
+                    name: '变电站3',
+                    data: eval(data.result)[2]
+                },{
+                    name: '变电站4',
+                    data: eval(data.result)[3]
+                },{
+                    name: '变电站5',
+                    data: eval(data.result)[4]
+                },{
+                    name: '变电站6',
+                    data: eval(data.result)[5]
+                },{
+                    name: '变电站7',
+                    data: eval(data.result)[6]
+                },{
+                    name: '变电站8',
+                    data: eval(data.result)[7]
+                },{
+                    name: '变电站9',
+                    data: eval(data.result)[8]
+                },{
+                    name: '变电站10',
+                    data: eval(data.result)[9]
+                },{
+                    name: '变电站11',
+                    data: eval(data.result)[10]
+                },{
+                    name: '变电站12',
+                    data: eval(data.result)[11]
+                }]
+            });
         }
     });
     //绘制damping
@@ -279,38 +531,12 @@ function renderTestChart(fileName) {
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
-            console.log(JSON.stringify(data));
-            var damping_option = {
-                title: {
-                    text: 'damping'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        animation: false
-                    }
-                },
-                xAxis: {
-                    type: 'category',
-                    boundaryGap: false,
-                    data: axis_x_damping
-                },
-                yAxis: {
-                    type: 'value',
-                    boundaryGap: [0, '100%'],
-                    splitLine: {
-                        show: false
-                    }
-                },
+            damping_chart.setOption({
                 series: [{
                     name: '模拟数据',
-                    type: 'line',
-                    showSymbol: false,
-                    hoverAnimation: false,
                     data: eval(data.result)
                 }]
-            };
-            damping_chart.setOption(damping_option);
+            });
         }
     });
     //绘制frequency
@@ -320,38 +546,12 @@ function renderTestChart(fileName) {
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
-            console.log(JSON.stringify(data));
-            var frequency_option = {
-                title: {
-                    text: 'frequency'
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        animation: false
-                    }
-                },
-                xAxis: {
-                    type: 'category',
-                    boundaryGap: false,
-                    data: axis_x_damping
-                },
-                yAxis: {
-                    type: 'value',
-                    boundaryGap: [0, '100%'],
-                    splitLine: {
-                        show: false
-                    }
-                },
+            frequency_chart.setOption({
                 series: [{
                     name: '模拟数据',
-                    type: 'line',
-                    showSymbol: false,
-                    hoverAnimation: false,
                     data: eval(data.result)
                 }]
-            };
-            frequency_chart.setOption(frequency_option);
+            });
         }
     });
     //绘制modeshape
@@ -361,108 +561,53 @@ function renderTestChart(fileName) {
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
-            //console.log(JSON.stringify(data));
-            console.log(JSON.stringify(eval(data.result)[0]));
-            var axisOption = {
-                title: {
-                    text: 'modeshape'
-                },
-                legend: {
-                    data: ['变电站1', '变电站2', '变电站3', '变电站4','', '变电站5', '变电站6',
-                        '变电站7', '变电站8','', '变电站9', '变电站10', '变电站11', '变电站12'],
-                    //top:'top',
-                    orient:'vertical',
-                    left:'right',
-                    itemGap:20,
-                    itemWidth:15
-                },
-                polar: {},
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross'
-                    }
-                },
-                angleAxis: {
-                    type: 'value',
-                    startAngle: 0
-                },
-                radiusAxis: {},
-                grid:{
-                    top:'10%'
-                },
+            modeShape_Chart.setOption({
                 series: [{
-                    coordinateSystem: 'polar',
                     name: '变电站1',
-                    type: 'line',
                     data: eval(data.result)[0]
                 },
                     {
-                        coordinateSystem: 'polar',
                         name: '变电站2',
-                        type: 'line',
                         data: eval(data.result)[1]
                     },
                     {
-                        coordinateSystem: 'polar',
                         name: '变电站3',
-                        type: 'line',
                         data: eval(data.result)[2]
                     },
                     {
-                        coordinateSystem: 'polar',
                         name: '变电站4',
-                        type: 'line',
                         data: eval(data.result)[3]
                     },
                     {
-                        coordinateSystem: 'polar',
                         name: '变电站5',
-                        type: 'line',
                         data: eval(data.result)[4]
                     },
                     {
-                        coordinateSystem: 'polar',
                         name: '变电站6',
-                        type: 'line',
                         data: eval(data.result)[5]
                     }, {
-                        coordinateSystem: 'polar',
                         name: '变电站7',
-                        type: 'line',
                         data: eval(data.result)[6]
                     }, {
-                        coordinateSystem: 'polar',
                         name: '变电站8',
-                        type: 'line',
                         data: eval(data.result)[7]
                     }, {
-                        coordinateSystem: 'polar',
                         name: '变电站9',
-                        type: 'line',
                         data: eval(data.result)[8]
                     }, {
-                        coordinateSystem: 'polar',
                         name: '变电站10',
-                        type: 'line',
                         data: eval(data.result)[9]
                     }, {
-                        coordinateSystem: 'polar',
                         name: '变电站11',
-                        type: 'line',
                         data: eval(data.result)[10]
                     }, {
-                        coordinateSystem: 'polar',
                         name: '变电站12',
-                        type: 'line',
                         data: eval(data.result)[11]
                     }]
-            };
-            modeShape_Chart.setOption(axisOption);
+            });
         }
     });
 
-    vMsg_Chart.showLoading();
 
     var timeTicket = setInterval(function () {
         //绘制参数
@@ -472,29 +617,56 @@ function renderTestChart(fileName) {
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
-                var axis_y = eval(data.result);
-                vMsg_Chart.hideLoading();
-                var option = {
-                    title: {
-                        text: '变电站',
-                        subtext: '数据采集'
-                    },
-                    tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data: ['变电站1', '变电站2','', '变电站3', '变电站4','','变电站5', '变电站6','',
-                            '变电站7', '变电站8','','变电站9', '变电站10','', '变电站11', '变电站12'],
-                        top:'top',
-                        orient:'vertical',
-                        left:'center',
-                        itemGap:20,
-                        itemWidth:15
-                    },
-                    toolbox: {
-                        show: true
-                    },
+                vMsg_Chart.setOption({
                     dataZoom: [
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            show: true,
+                            realtime: true,
+                            start: 0,
+                            end: 100
+                        },
                         {
                             show: true,
                             realtime: true,
@@ -520,161 +692,45 @@ function renderTestChart(fileName) {
                             end: 100
                         }
                     ],
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: axis_x,
-                        splitLine: {
-                            show: true
-                        }
-                    },
-                    yAxis: {
-                        type: 'value',
-                        max:21,
-                        min:19,
-                        splitLine: {
-                            show: true
-                        }
-                    },
-                    series: [
-                        {
-                            name: '变电站1',
-                            type: 'line',
-                            showSymbol: false,
-                            hoverAnimation: false,
-                            data: axis_y[0],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站2',
-                            type: 'line',
-                            data: axis_y[1],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站3',
-                            type: 'line',
-                            data: axis_y[2],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站4',
-                            type: 'line',
-                            data: axis_y[3],
-                            markPoint: {
-                                data: [
-                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站5',
-                            type: 'line',
-                            showSymbol: false,
-                            hoverAnimation: false,
-                            data: axis_y[4],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站6',
-                            type: 'line',
-                            data: axis_y[5],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站7',
-                            type: 'line',
-                            data: axis_y[6],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站8',
-                            type: 'line',
-                            data: axis_y[7],
-                            markPoint: {
-                                data: [
-                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站9',
-                            type: 'line',
-                            showSymbol: false,
-                            hoverAnimation: false,
-                            data: axis_y[8],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站10',
-                            type: 'line',
-                            data: axis_y[9],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站11',
-                            type: 'line',
-                            data: axis_y[10],
-                            markPoint: {
-                                data: [
-                                    {type: 'max', name: '最大值'},
-                                    {type: 'min', name: '最小值'}
-                                ]
-                            }
-                        },
-                        {
-                            name: '变电站12',
-                            type: 'line',
-                            data: axis_y[11],
-                            markPoint: {
-                                data: [
-                                    {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
-                                ]
-                            }
-                        }
-                    ]
-                };
-                vMsg_Chart.setOption(option);
+                    series: [{
+                        // 根据名字对应到相应的系列
+                        name: '变电站1',
+                        data: eval(data.result)[0]
+                    },{
+                        name: '变电站2',
+                        data: eval(data.result)[1]
+                    },{
+                        name: '变电站3',
+                        data: eval(data.result)[2]
+                    },{
+                        name: '变电站4',
+                        data: eval(data.result)[3]
+                    },{
+                        name: '变电站5',
+                        data: eval(data.result)[4]
+                    },{
+                        name: '变电站6',
+                        data: eval(data.result)[5]
+                    },{
+                        name: '变电站7',
+                        data: eval(data.result)[6]
+                    },{
+                        name: '变电站8',
+                        data: eval(data.result)[7]
+                    },{
+                        name: '变电站9',
+                        data: eval(data.result)[8]
+                    },{
+                        name: '变电站10',
+                        data: eval(data.result)[9]
+                    },{
+                        name: '变电站11',
+                        data: eval(data.result)[10]
+                    },{
+                        name: '变电站12',
+                        data: eval(data.result)[11]
+                    }]
+                });
             }
         });
         //绘制damping
@@ -684,38 +740,12 @@ function renderTestChart(fileName) {
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
-                console.log(JSON.stringify(data));
-                var damping_option = {
-                    title: {
-                        text: 'damping'
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: {
-                            animation: false
-                        }
-                    },
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: axis_x_damping
-                    },
-                    yAxis: {
-                        type: 'value',
-                        boundaryGap: [0, '100%'],
-                        splitLine: {
-                            show: false
-                        }
-                    },
+                damping_chart.setOption({
                     series: [{
                         name: '模拟数据',
-                        type: 'line',
-                        showSymbol: false,
-                        hoverAnimation: false,
                         data: eval(data.result)
                     }]
-                };
-                damping_chart.setOption(damping_option);
+                });
             }
         });
         //绘制frequency
@@ -725,38 +755,12 @@ function renderTestChart(fileName) {
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
-                console.log(JSON.stringify(data));
-                var frequency_option = {
-                    title: {
-                        text: 'frequency'
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: {
-                            animation: false
-                        }
-                    },
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: axis_x_damping
-                    },
-                    yAxis: {
-                        type: 'value',
-                        boundaryGap: [0, '100%'],
-                        splitLine: {
-                            show: false
-                        }
-                    },
-                    series: [{
-                        name: '模拟数据',
-                        type: 'line',
-                        showSymbol: false,
-                        hoverAnimation: false,
-                        data: eval(data.result)
-                    }]
-                };
-                frequency_chart.setOption(frequency_option);
+                frequency_chart.setOption({
+                        series: [{
+                            name: '模拟数据',
+                            data: eval(data.result)
+                        }]
+                });
             }
         });
         //绘制modeshape
@@ -766,101 +770,50 @@ function renderTestChart(fileName) {
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
-                //console.log(JSON.stringify(data));
-                //console.log(JSON.stringify(eval(data.result)[0]));
-                var axisOption = {
-                    title: {
-                        text: 'modeshape'
-                    },
-                    legend: {
-                        data: ['变电站1', '变电站2', '变电站3', '变电站4','', '变电站5', '变电站6',
-                            '变电站7', '变电站8','', '变电站9', '变电站10', '变电站11', '变电站12'],
-                        //top:'top',
-                        orient:'vertical',
-                        left:'right',
-                        itemGap:20,
-                        itemWidth:15
-                    },
-                    polar: {},
-                    tooltip: {
-                        trigger: 'axis',
-                        axisPointer: {
-                            type: 'cross'
-                        }
-                    },
-                    angleAxis: {
-                        type: 'value',
-                        startAngle: 0
-                    },
-                    radiusAxis: {},
+                modeShape_Chart.setOption({
                     series: [{
-                        coordinateSystem: 'polar',
                         name: '变电站1',
-                        type: 'line',
                         data: eval(data.result)[0]
                     },
                         {
-                            coordinateSystem: 'polar',
                             name: '变电站2',
-                            type: 'line',
                             data: eval(data.result)[1]
                         },
                         {
-                            coordinateSystem: 'polar',
                             name: '变电站3',
-                            type: 'line',
                             data: eval(data.result)[2]
                         },
                         {
-                            coordinateSystem: 'polar',
                             name: '变电站4',
-                            type: 'line',
                             data: eval(data.result)[3]
                         },
                         {
-                            coordinateSystem: 'polar',
                             name: '变电站5',
-                            type: 'line',
                             data: eval(data.result)[4]
                         },
                         {
-                            coordinateSystem: 'polar',
                             name: '变电站6',
-                            type: 'line',
                             data: eval(data.result)[5]
                         }, {
-                            coordinateSystem: 'polar',
                             name: '变电站7',
-                            type: 'line',
                             data: eval(data.result)[6]
                         }, {
-                            coordinateSystem: 'polar',
                             name: '变电站8',
-                            type: 'line',
                             data: eval(data.result)[7]
                         }, {
-                            coordinateSystem: 'polar',
                             name: '变电站9',
-                            type: 'line',
                             data: eval(data.result)[8]
                         }, {
-                            coordinateSystem: 'polar',
                             name: '变电站10',
-                            type: 'line',
                             data: eval(data.result)[9]
                         }, {
-                            coordinateSystem: 'polar',
                             name: '变电站11',
-                            type: 'line',
                             data: eval(data.result)[10]
                         }, {
-                            coordinateSystem: 'polar',
                             name: '变电站12',
-                            type: 'line',
                             data: eval(data.result)[11]
                         }]
-                };
-                modeShape_Chart.setOption(axisOption);
+                });
             }
         });
     }, 10000);

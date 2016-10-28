@@ -2,7 +2,6 @@
     pageInitModule.setWidth();
     pageInitModule.setSidebar();
     pageInitModule.setCarousel();
-    btnClick('ERA_RD');
 })
 $(window).resize(function () {
     pageInitModule.setWidth();

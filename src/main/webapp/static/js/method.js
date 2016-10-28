@@ -1,16 +1,7 @@
 function btnClick(methodName) {
+    activeLi(methodName);
+    clearContent(methodName)
 
-    $('#nav_list li').removeClass('active');
-
-    $("#nav_list ." + methodName.toLowerCase()).addClass('active');
-
-    $('.contentName').empty().append(methodName);
-
-    $('.content').empty().append("" +
-        '<div id="v_msg_chart" style="width: 1000px;height: 500px;"></div>' +
-        '<div id="damping_chart" style="width: 1000px;height: 500px;"></div>' +
-        '<div id="frequency_chart" style="width: 1000px;height: 500px;"></div>' +
-        '<div id="modeshape_chart" style="width: 1000px;height: 500px;"></div>')
     var fileName;
     if (methodName == "ERA_RD") {
         fileName = "1"
@@ -20,6 +11,30 @@ function btnClick(methodName) {
         fileName = "3"
     }
     renderTestChart(fileName);
+}
+
+/**
+ * 激活选择的li
+ *
+ * @param methodName
+ */
+function activeLi(methodName) {
+    $('#nav_list li').removeClass('active');
+    $("#nav_list ." + methodName.toLowerCase()).addClass('active');
+}
+
+/**
+ * 清空和设置相关静态数据
+ *
+ * @param methodName
+ */
+function clearContent(methodName) {
+    $('.contentName').empty().append(methodName);
+    $('#v_msg_chart').empty();
+    $('#damping_chart').empty();
+    $('#frequency_chart').empty();
+    $('#modeshape_chart').empty();
+
 }
 
 function renderTestChart(fileName) {
@@ -352,8 +367,7 @@ function renderTestChart(fileName) {
                 vMsg_Chart.hideLoading();
                 var option = {
                     title: {
-                        text: '过去5分钟变电站数据',
-                        subtext: '数据展示模拟'
+                        text: '过去5分钟变电站数据'
                     },
                     tooltip: {
                         trigger: 'axis'

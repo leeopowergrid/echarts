@@ -4,10 +4,9 @@ function btnClick(methodName) {
 
     $("#nav_list ." + methodName.toLowerCase()).addClass('active');
 
-    $('.containerName').empty().append(methodName);
+    $('.contentName').empty().append(methodName);
 
-
-    $('.container').empty().append("" +
+    $('.content').empty().append("" +
         '<div id="v_msg_chart" style="width: 1000px;height: 500px;"></div>' +
         '<div id="damping_chart" style="width: 1000px;height: 500px;"></div>' +
         '<div id="frequency_chart" style="width: 1000px;height: 500px;"></div>' +

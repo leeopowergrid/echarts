@@ -69,12 +69,12 @@
     <div class="maincontent row">
         <!--我是主要内容 start-->
         <ul class="breadcrumb">
-            <li class="active containerName">Chart库</li>
+            <li class="active contentName">ERA_RD</li>
         </ul>
         <div class="col-sm-12">
             <!--flot start-->
             <div class="row" id="chart-flot">
-                <div class="container">
+                <div class="content">
 
                 </div>
             </div>
@@ -84,10 +84,5 @@
     </div>
 </div>
 <a href="#top" id="goTop"><i class="fa fa-angle-up fa-3x"></i></a>
-<script type="text/javascript">
-    window.onload = function () {
-        btnClick('ERA_RD');
-    }
-</script>
 </body>
 </html>

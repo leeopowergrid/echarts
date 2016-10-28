@@ -69,7 +69,8 @@
             <li class="swrditdambient" onclick="btnClick('SWRDITDAmbient')"><a>SWRDITDAmbient</a></li>
         </ul>
     </div>
-    <div class="maincontent row">
+    <div class="maincontent row"
+         style="background: #fff url(/static/image/body.jpg) repeat-x">
         <!--我是主要内容 start-->
         <ul class="breadcrumb">
             <li class="active content-header contentName">ERA_RD</li>

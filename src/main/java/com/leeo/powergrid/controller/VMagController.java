@@ -1,6 +1,8 @@
 package com.leeo.powergrid.controller;
 
+import com.leeo.powergrid.PageResult;
 import com.leeo.powergrid.request.DataRequest;
+import com.leeo.powergrid.request.VMsgDataRequest;
 import com.leeo.powergrid.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +26,8 @@ public class VMagController {
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
-    public List<List<Double>> getData(DataRequest request) {
-        Double[][] vMagData = dataService.getVMagData(request.getName());
+    public PageResult getData(DataRequest request) {
+        Double[][] vMagData = dataService.getVMagData(request.getName()+request.getPageIndex());
         List<List<Double>> result = new ArrayList<>();
         for (Double[] x : vMagData) {
             List<Double> value = new ArrayList<>();
@@ -35,6 +37,6 @@ public class VMagController {
             }
             result.add(value);
         }
-        return result;
+        return new PageResult(request.getNextPage(),result);
     }
 }

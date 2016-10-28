@@ -1,5 +1,6 @@
 package com.leeo.powergrid.controller;
 
+import com.leeo.powergrid.PageResult;
 import com.leeo.powergrid.bean.Complex;
 import com.leeo.powergrid.request.DataRequest;
 import com.leeo.powergrid.service.DataService;
@@ -25,19 +26,34 @@ public class ModeshapeController {
     private DataService dataService;
 
     @RequestMapping(value = "get", method = {RequestMethod.POST, RequestMethod.GET})
-    public List<List<Double>> getData(DataRequest request) {
+    public PageResult getData(DataRequest request) {
         Complex[][] modeShapeData = dataService.getModeShapeData(request.getName());
-        List<List<Double>> result = new ArrayList<>();
+        List<List<Double>> data = new ArrayList<>();
         for (Complex[] x : modeShapeData) {
             for (Complex y : x) {
                 List<Double> value = new ArrayList<>();
                 double[] values = transferPolarCoordinates(y.getReal(), y.getImaginary());
                 value.add(values[0]);
                 value.add(values[1]);
-                result.add(value);
+                data.add(value);
             }
         }
-        return result.subList(1,13);
+
+        int start = (request.getPageIndex()-1)*request.getPageSize();
+        int end = start+12;
+
+        List<List<List<Double>>> result = new ArrayList<>();
+        for (int i=start;i<end;i++){
+            List<List<Double>> first = new ArrayList<>();
+            List<Double> second = new ArrayList<>();
+            second.add(0d);
+            second.add(0d);
+            first.add(second);
+            first.addAll(data.subList(i,i+1));
+            result.add(first);
+        }
+
+        return new PageResult(request.getNextPage(),result);
     }
 
     private double[] transferPolarCoordinates(double x, double y) {
@@ -47,7 +63,7 @@ public class ModeshapeController {
         return result;
     }
 
-    public double calculateAngle(double x, double y) {
+    private double calculateAngle(double x, double y) {
         double tan = Math.abs(Math.abs(y) / Math.abs(x));
         double angle = Math.toDegrees(Math.atan(tan));
         double baseAngle = 0;
@@ -65,12 +81,6 @@ public class ModeshapeController {
 
     private double calculateHypotenuse(double x, double y) {
         return Math.sqrt(x * x + y * y);
-    }
-
-    public static void main(String[] args) {
-        ModeshapeController controller = new ModeshapeController();
-        System.out.println(controller.calculateAngle(-3, -4));
-        System.out.println(controller.calculateHypotenuse(3, 4));
     }
 
 }

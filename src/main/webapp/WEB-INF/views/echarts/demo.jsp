@@ -10,8 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <title>图表异步加载</title>
-    <script src="/static/echarts/echarts.min.js"></script>
-    <script type="text/javascript" src="/static/jquery/jquery-3.0.0.js"></script>
+    <script src="/static/js/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
 </head>
 <body>
 <div id="v_msg_chart" style="width: 800px;height:300px;"></div>
@@ -32,7 +32,7 @@
     var modeShape_Chart = echarts.init(document.getElementById('modeshape_chart'));
 
     var axis_x = [];//参数X轴
-    for (var i = 1; i <= 400; i++) {
+    for (var i = 1; i <= 20010; i++) {
         axis_x.push(i);
     }
 
@@ -102,7 +102,9 @@
                         data: axis_x
                     },
                     yAxis: {
-                        type: 'value'
+                        type: 'value',
+                        max:21.5,
+                        min:17
                     },
                     series: [
                         {

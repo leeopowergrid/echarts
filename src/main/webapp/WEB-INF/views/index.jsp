@@ -70,7 +70,7 @@
         </ul>
     </div>
     <div class="maincontent row"
-         style="background: url(/static/image/wy4-1.jpg); background-size:cover;">
+         style="background: #fff url(/static/image/body.jpg) repeat-x">
         <!--我是主要内容 start-->
         <ul class="breadcrumb">
             <li class="active content-header contentName">ERA_RD</li>

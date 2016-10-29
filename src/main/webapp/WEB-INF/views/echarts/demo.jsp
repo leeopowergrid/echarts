@@ -6,12 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html lang="en">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="UTF-8">
     <title>图表异步加载</title>
-    <script src="/static/js/echarts/echarts.min.js"></script>
-    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script src="static/js/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
 </head>
 <body>
 <div id="v_msg_chart" style="width: 800px;height:300px;"></div>

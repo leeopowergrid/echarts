@@ -14,6 +14,8 @@ public class DataRequest {
 
     private int pageSize = 12;
 
+    private boolean cyclic = false;
+
     public String getName() {
         return name;
     }
@@ -29,6 +31,7 @@ public class DataRequest {
     public void setPageIndex(int pageIndex) {
         if (pageIndex > PageConstants.MAX_PAGE) {
             this.pageIndex = 1;
+            this.cyclic = true;
         } else {
             this.pageIndex = pageIndex;
         }
@@ -43,7 +46,11 @@ public class DataRequest {
     }
 
     public int getNextPage() {
-        return pageIndex + 1;
+        if(cyclic){
+            return 1;
+        }else{
+            return pageIndex + 1;
+        }
     }
 }
 

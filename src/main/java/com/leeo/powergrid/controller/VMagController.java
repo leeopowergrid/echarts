@@ -35,7 +35,7 @@ public class VMagController {
                 // value.add(x) TODO X坐标
                 value.add(y); // Y坐标
             }
-            result.add(value.subList(0,4000));
+            result.add(value.subList(10000,10400));
         }
         return new PageResult(request.getNextPage(),result);
     }

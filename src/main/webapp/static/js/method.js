@@ -48,7 +48,7 @@ function renderTestChart(fileName) {
     var modeShape_Chart = echarts.init(document.getElementById('modeshape_chart'));
 
     var axis_x = [];//参数X轴
-    for (var i = 1; i <= 20010; i++) {
+    for (var i = 1; i <= 400; i++) {
         axis_x.push(i);
     }
 
@@ -156,7 +156,7 @@ function renderTestChart(fileName) {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: axis_x,
+            data: [],
             splitLine: {
                 show: true
             }
@@ -477,12 +477,15 @@ function renderTestChart(fileName) {
     //绘制参数
     $.ajax({
         type: "GET",
-        url: "/V_Mag/get?name=V_Mag&pageIndex=" + pageIndex,
+        url: "V_Mag/get?name=V_Mag&pageIndex=" + pageIndex,
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
             vMsg_Chart.hideLoading();
             vMsg_Chart.setOption({
+                xAxis: {
+                    data: axis_x
+                },
                 series: [{
                     // 根据名字对应到相应的系列
                     name: '变电站1',
@@ -527,7 +530,7 @@ function renderTestChart(fileName) {
     //绘制damping
     $.ajax({
         type: "GET",
-        url: "/damping/get?name=damping" + fileName + "&pageIndex=" + pageIndex,
+        url: "damping/get?name=damping" + fileName + "&pageIndex=" + pageIndex,
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
@@ -542,7 +545,7 @@ function renderTestChart(fileName) {
     //绘制frequency
     $.ajax({
         type: "GET",
-        url: "/frequency/get?name=frequency" + fileName + "&pageIndex=" + pageIndex,
+        url: "frequency/get?name=frequency" + fileName + "&pageIndex=" + pageIndex,
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
@@ -557,7 +560,7 @@ function renderTestChart(fileName) {
     //绘制modeshape
     $.ajax({
         type: "GET",
-        url: "/modeshape/get?name=modeshape" + fileName + "&pageIndex=" + pageIndex,
+        url: "modeshape/get?name=modeshape" + fileName + "&pageIndex=" + pageIndex,
         contentType: "application/json",
         success: function (data) {
             pageIndex = data.pageIndex;
@@ -613,11 +616,25 @@ function renderTestChart(fileName) {
         //绘制参数
         $.ajax({
             type: "GET",
-            url: "/V_Mag/get?name=V_Mag&pageIndex=" + pageIndex,
+            url: "V_Mag/get?name=V_Mag&pageIndex=" + pageIndex,
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
+                if(pageIndex==1){
+                    for(var i=1;i<=400;i++){
+                        axis_x.shift();
+                        axis_x.push(i);
+                    }
+                }else{
+                    for(var i=0;i<10;i++){
+                        axis_x.shift();
+                        axis_x.push((pageIndex-1)*10+400+i);
+                    }
+                }
                 vMsg_Chart.setOption({
+                    xAxis: {
+                        data: axis_x
+                    },
                     dataZoom: [
                         {
                             show: true,
@@ -736,7 +753,7 @@ function renderTestChart(fileName) {
         //绘制damping
         $.ajax({
             type: "GET",
-            url: "/damping/get?name=damping" + fileName + "&pageIndex=" + pageIndex,
+            url: "damping/get?name=damping" + fileName + "&pageIndex=" + pageIndex,
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
@@ -751,7 +768,7 @@ function renderTestChart(fileName) {
         //绘制frequency
         $.ajax({
             type: "GET",
-            url: "/frequency/get?name=frequency" + fileName + "&pageIndex=" + pageIndex,
+            url: "frequency/get?name=frequency" + fileName + "&pageIndex=" + pageIndex,
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
@@ -766,7 +783,7 @@ function renderTestChart(fileName) {
         //绘制modeshape
         $.ajax({
             type: "GET",
-            url: "/modeshape/get?name=modeshape" + fileName + "&pageIndex=" + pageIndex,
+            url: "modeshape/get?name=modeshape" + fileName + "&pageIndex=" + pageIndex,
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;

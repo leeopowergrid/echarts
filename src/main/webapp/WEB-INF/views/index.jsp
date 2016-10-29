@@ -1,40 +1,45 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+    <base href="<%=basePath%>">
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" href="/static/image/favicon.ico"/>
+    <link rel="icon" href="static/image/favicon.ico"/>
     <!--jquery库-->
-    <script src="/static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
     <!--bootstrap库-->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="/static/js/bootstrap/bootstrap.min.js"></script>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="static/js/bootstrap/bootstrap.min.js"></script>
     <!--[if lt IE 9]>
-    <script src="/static/js/bootstrap/html5shiv.min.js"></script>
-    <script src="/static/js/bootstrap/respond.min.js"></script>
+    <script src="static/js/bootstrap/html5shiv.min.js"></script>
+    <script src="static/js/bootstrap/respond.min.js"></script>
     <![endif]-->
     <!--font-awesome字体库-->
-    <link href="/static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="static/css/font-awesome.min.css" rel="stylesheet"/>
     <!--页面加载进度条-->
-    <link href="/static/css/pace/dataurl.css" rel="stylesheet"/>
-    <script src="/static/js/pace/pace.min.js"></script>
+    <link href="static/css/pace/dataurl.css" rel="stylesheet"/>
+    <script src="static/js/pace/pace.min.js"></script>
     <!--jquery.hammer手势插件-->
-    <script src="/static/js/jquery.hammer/hammer.min.js"></script>
-    <script src="/static/js/jquery.hammer/jquery.hammer.js"></script>
+    <script src="static/js/jquery.hammer/hammer.min.js"></script>
+    <script src="static/js/jquery.hammer/jquery.hammer.js"></script>
     <!--平滑滚动到顶部库-->
-    <script src="/static/js/jquery.scrolltopcontrol/scrolltopcontrol.js" type="text/javascript"></script>
+    <script src="static/js/jquery.scrolltopcontrol/scrolltopcontrol.js" type="text/javascript"></script>
     <!--主要写的jquery拓展方法-->
-    <script src="/static/js/jquery.extend.js" type="text/javascript"></script>
+    <script src="static/js/jquery.extend.js" type="text/javascript"></script>
     <!--主要写的css代码-->
-    <link href="/static/css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="static/css/default.css" rel="stylesheet" type="text/css"/>
     <!--主要写的js代码-->
-    <script src="/static/js/default.js" type="text/javascript"></script>
+    <script src="static/js/default.js" type="text/javascript"></script>
     <!--echarts库 -->
-    <script src="/static/js/echarts/echarts.min.js"></script>
+    <script src="static/js/echarts/echarts.min.js"></script>
     <!--方法调用js代码 -->
-    <script src="/static/js/method.js" type="text/javascript"></script>
+    <script src="static/js/method.js" type="text/javascript"></script>
 
     <title>数据模拟DEMO</title>
 
@@ -70,7 +75,7 @@
         </ul>
     </div>
     <div class="maincontent row"
-         style="background: #fff url(/static/image/body.jpg) repeat-x">
+         style="background: #fff url(static/image/body.jpg) repeat-x">
         <!--我是主要内容 start-->
         <ul class="breadcrumb">
             <li class="active content-header contentName">ERA_RD</li>

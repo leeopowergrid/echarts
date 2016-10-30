@@ -45,8 +45,8 @@
 
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <img src="static/image/41218.png" style="width: 100%;height: 100%;">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background: #fff url(static/image/header_ws1.jpg) no-repeat right top; width: 100%; height: 110px; text-align: left;">
+    <img src="static/image/logo10.png">
     <div class="container-fluid" >
         <%--<div class="navbar-header">--%>
             <%--<button type="button" class="navbar-toggle show pull-left" data-target="sidebar">--%>
@@ -67,8 +67,8 @@
         <%--</div>--%>
     </div>
 </nav>
-<div class="container-fluid all" style="margin-top:67px;">
-    <div class="sidebar" style="top: 67px;">
+<div class="container-fluid all" style="margin-top:110px;">
+    <div class="sidebar" style="top: 110px;">
         <ul class="nav" id="nav_list">
             <li class="era_rd active" onclick="btnClick('ERA_RD')"><a>ERA_RD</a></li>
             <li class="era_next" onclick="btnClick('ERA_NEXT')"><a>ERA_NEXT</a></li>
@@ -85,7 +85,7 @@
             <!--flot start-->
             <div class="row" id="chart-flot">
                 <div class="content">
-                    <div id="v_msg_chart" class="center-block" style="width: 1000px;height: 900px"></div>
+                    <div id="v_msg_chart" class="center-block" style="width: 1000px;height: 700px"></div>
                     <div id="damping_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                     <div id="frequency_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                     <div id="modeshape_chart" class="center-block" style="width: 1000px;height: 500px"></div>

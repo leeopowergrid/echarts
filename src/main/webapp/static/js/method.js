@@ -163,8 +163,8 @@ function renderTestChart(fileName) {
         },
         yAxis: {
             type: 'value',
-            max: 22,
-            min: 12
+            max: 21.7,
+            min: 12.4
         },
         series: [
             {

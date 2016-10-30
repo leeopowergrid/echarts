@@ -70,7 +70,7 @@
 <div class="container-fluid all" style="margin-top:110px;">
     <div class="sidebar">
         <ul class="nav" id="nav_list">
-            <li class="era_rd active" onclick="btnClick('ERA_RD')"><a id="era_rd" style="background:#fff url(static/image/ERA_RD.png) no-repeat right top; width: 100%; height:50px;"></a></li>
+            <li class="era_rd active" onclick="btnClick('ERA_RD')" onmouseover="mouseOver('ERA_RD')" onmouseout="mouseOut('ERA_RD')"><a id="era_rd" style="background:#fff url(static/image/ERA_RD.png) no-repeat right top; width: 100%; height:50px;"></a></li>
             <li class="era_next" onclick="btnClick('ERA_NEXT')" ><a id= "era_next" style="background: #fff url(static/image/ERA_NEXT.png) no-repeat right top; width: 100%; height:50px;"></a></li>
             <li class="swrditdambient" onclick="btnClick('SWRDITDAmbient')"><a id="swrditdambient" a style="background: #fff url(static/image/SWR.png) no-repeat right top; width: 100%; height:50px;"></a></li>
         </ul>

@@ -13,6 +13,14 @@ function btnClick(methodName) {
     renderTestChart(fileName);
 }
 
+function mouseOver(methodName) {
+    console.log("in button:" + methodName);
+}
+
+function mouseOut(methodName) {
+    console.log("out button:" + methodName);
+}
+
 /**
  * 激活选择的li
  *
@@ -20,15 +28,16 @@ function btnClick(methodName) {
  */
 function activeLi(methodName) {
     $('#nav_list li').removeClass('active');
-    document.getElementById("era_rd").style.backgroundImage='url(static/image/ERA_RD.png)';
-    document.getElementById("era_next").style.backgroundImage='url(static/image/ERA_NEXT.png)';
-    document.getElementById("swrditdambient").style.backgroundImage='url(static/image/SWR.png)';
-    if(methodName.toLocaleLowerCase()=='era_rd'){
-        document.getElementById("era_rd").style.backgroundImage='url(static/image/ERA_RD_white.png)';
-    }else if(methodName.toLowerCase() =='era_next'){
-        document.getElementById("era_next").style.backgroundImage='url(static/image/ERA_NEXT_white.png)';
-    }else{
-        document.getElementById("swrditdambient").style.backgroundImage='url(static/image/SWR_white.png)';
+    console.log("'url(static/image/" + methodName + "_white.png)'");
+    document.getElementById("era_rd").style.backgroundImage = 'url(static/image/ERA_RD.png)';
+    document.getElementById("era_next").style.backgroundImage = 'url(static/image/ERA_NEXT.png)';
+    document.getElementById("swrditdambient").style.backgroundImage = 'url(static/image/SWR.png)';
+    if (methodName.toLocaleLowerCase() == 'era_rd') {
+        document.getElementById("era_rd").style.backgroundImage = 'url(static/image/ERA_RD_white.png)';
+    } else if (methodName.toLowerCase() == 'era_next') {
+        document.getElementById("era_next").style.backgroundImage = 'url(static/image/ERA_NEXT_white.png)';
+    } else {
+        document.getElementById("swrditdambient").style.backgroundImage = 'url(static/image/SWR_white.png)';
     }
     //$("#nav_list ." + methodName.toLowerCase()).addClass('active');
 }
@@ -86,79 +95,12 @@ function renderTestChart(fileName) {
             itemGap: 20,
             itemWidth: 15
         },
-        toolbox: {
-            show: true
-        },
         dataZoom: [
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100,
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
-            },
-            {
-                show: true,
-                realtime: true,
-                start: 0,
-                end: 100
+            { // 第一个 dataZoom 组件
+                yAxisIndex: [0, 11] // 表示这个 dataZoom 组件控制 第一个 和 第三个 yAxis
             },
             {
                 type: 'inside',
-                realtime: true,
                 start: 0,
                 end: 100
             }
@@ -171,11 +113,44 @@ function renderTestChart(fileName) {
                 show: true
             }
         },
-        yAxis: {
-            type: 'value',
-            max: 21.7,
-            min: 12.4
-        },
+        yAxis: [
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            },
+            {
+                type: 'value',
+            }
+        ],
         series: [
             {
                 name: '变电站1',
@@ -274,7 +249,7 @@ function renderTestChart(fileName) {
                 type: 'line',
                 showSymbol: false,
                 hoverAnimation: false,
-                data:[],
+                data: [],
                 markPoint: {
                     data: [
                         {type: 'max', name: '最大值'},
@@ -500,37 +475,37 @@ function renderTestChart(fileName) {
                     // 根据名字对应到相应的系列
                     name: '变电站1',
                     data: eval(data.result)[0]
-                },{
+                }, {
                     name: '变电站2',
                     data: eval(data.result)[1]
-                },{
+                }, {
                     name: '变电站3',
                     data: eval(data.result)[2]
-                },{
+                }, {
                     name: '变电站4',
                     data: eval(data.result)[3]
-                },{
+                }, {
                     name: '变电站5',
                     data: eval(data.result)[4]
-                },{
+                }, {
                     name: '变电站6',
                     data: eval(data.result)[5]
-                },{
+                }, {
                     name: '变电站7',
                     data: eval(data.result)[6]
-                },{
+                }, {
                     name: '变电站8',
                     data: eval(data.result)[7]
-                },{
+                }, {
                     name: '变电站9',
                     data: eval(data.result)[8]
-                },{
+                }, {
                     name: '变电站10',
                     data: eval(data.result)[9]
-                },{
+                }, {
                     name: '变电站11',
                     data: eval(data.result)[10]
-                },{
+                }, {
                     name: '变电站12',
                     data: eval(data.result)[11]
                 }]
@@ -630,15 +605,15 @@ function renderTestChart(fileName) {
             contentType: "application/json",
             success: function (data) {
                 pageIndex = data.pageIndex;
-                if(pageIndex==1){
-                    for(var i=1;i<=2001;i++){
+                if (pageIndex == 1) {
+                    for (var i = 1; i <= 2001; i++) {
                         axis_x.shift();
                         axis_x.push(i);
                     }
-                }else{
-                    for(var i=0;i<50;i++){
+                } else {
+                    for (var i = 0; i < 50; i++) {
                         axis_x.shift();
-                        axis_x.push((pageIndex-1)*10+2000+i);
+                        axis_x.push((pageIndex - 1) * 10 + 2000 + i);
                     }
                 }
                 vMsg_Chart.setOption({
@@ -646,76 +621,11 @@ function renderTestChart(fileName) {
                         data: axis_x
                     },
                     dataZoom: [
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
-                        },
-                        {
-                            show: true,
-                            realtime: true,
-                            start: 0,
-                            end: 100
+                        { // 第一个 dataZoom 组件
+                            yAxisIndex: [0, 11] // 表示这个 dataZoom 组件控制 第一个 和 第三个 yAxis
                         },
                         {
                             type: 'inside',
-                            show:true,
-                            realtime: true,
                             start: 0,
                             end: 100
                         }
@@ -724,37 +634,37 @@ function renderTestChart(fileName) {
                         // 根据名字对应到相应的系列
                         name: '变电站1',
                         data: eval(data.result)[0]
-                    },{
+                    }, {
                         name: '变电站2',
                         data: eval(data.result)[1]
-                    },{
+                    }, {
                         name: '变电站3',
                         data: eval(data.result)[2]
-                    },{
+                    }, {
                         name: '变电站4',
                         data: eval(data.result)[3]
-                    },{
+                    }, {
                         name: '变电站5',
                         data: eval(data.result)[4]
-                    },{
+                    }, {
                         name: '变电站6',
                         data: eval(data.result)[5]
-                    },{
+                    }, {
                         name: '变电站7',
                         data: eval(data.result)[6]
-                    },{
+                    }, {
                         name: '变电站8',
                         data: eval(data.result)[7]
-                    },{
+                    }, {
                         name: '变电站9',
                         data: eval(data.result)[8]
-                    },{
+                    }, {
                         name: '变电站10',
                         data: eval(data.result)[9]
-                    },{
+                    }, {
                         name: '变电站11',
                         data: eval(data.result)[10]
-                    },{
+                    }, {
                         name: '变电站12',
                         data: eval(data.result)[11]
                     }]
@@ -784,10 +694,10 @@ function renderTestChart(fileName) {
             success: function (data) {
                 pageIndex = data.pageIndex;
                 frequency_chart.setOption({
-                        series: [{
-                            name: '模拟数据',
-                            data: eval(data.result)
-                        }]
+                    series: [{
+                        name: '模拟数据',
+                        data: eval(data.result)
+                    }]
                 });
             }
         });

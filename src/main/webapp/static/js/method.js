@@ -20,7 +20,17 @@ function btnClick(methodName) {
  */
 function activeLi(methodName) {
     $('#nav_list li').removeClass('active');
-    $("#nav_list ." + methodName.toLowerCase()).addClass('active');
+    document.getElementById("era_rd").style.backgroundImage='url(static/image/ERA_RD.png)';
+    document.getElementById("era_next").style.backgroundImage='url(static/image/ERA_NEXT.png)';
+    document.getElementById("swrditdambient").style.backgroundImage='url(static/image/SWR.png)';
+    if(methodName.toLocaleLowerCase()=='era_rd'){
+        document.getElementById("era_rd").style.backgroundImage='url(static/image/ERA_RD_white.png)';
+    }else if(methodName.toLowerCase() =='era_next'){
+        document.getElementById("era_next").style.backgroundImage='url(static/image/ERA_NEXT_white.png)';
+    }else{
+        document.getElementById("swrditdambient").style.backgroundImage='url(static/image/SWR_white.png)';
+    }
+    //$("#nav_list ." + methodName.toLowerCase()).addClass('active');
 }
 
 /**

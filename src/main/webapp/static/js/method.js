@@ -48,7 +48,7 @@ function renderTestChart(fileName) {
     var modeShape_Chart = echarts.init(document.getElementById('modeshape_chart'));
 
     var axis_x = [];//参数X轴
-    for (var i = 1; i <= 400; i++) {
+    for (var i = 1; i <= 2001; i++) {
         axis_x.push(i);
     }
 
@@ -84,7 +84,7 @@ function renderTestChart(fileName) {
                 show: true,
                 realtime: true,
                 start: 0,
-                end: 100
+                end: 100,
             },
             {
                 show: true,
@@ -621,14 +621,14 @@ function renderTestChart(fileName) {
             success: function (data) {
                 pageIndex = data.pageIndex;
                 if(pageIndex==1){
-                    for(var i=1;i<=400;i++){
+                    for(var i=1;i<=2001;i++){
                         axis_x.shift();
                         axis_x.push(i);
                     }
                 }else{
-                    for(var i=0;i<10;i++){
+                    for(var i=0;i<50;i++){
                         axis_x.shift();
-                        axis_x.push((pageIndex-1)*10+400+i);
+                        axis_x.push((pageIndex-1)*10+2000+i);
                     }
                 }
                 vMsg_Chart.setOption({
@@ -704,6 +704,7 @@ function renderTestChart(fileName) {
                         },
                         {
                             type: 'inside',
+                            show:true,
                             realtime: true,
                             start: 0,
                             end: 100

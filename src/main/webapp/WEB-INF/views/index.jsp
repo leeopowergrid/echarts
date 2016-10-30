@@ -46,28 +46,29 @@
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle show pull-left" data-target="sidebar">
-                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
-                    class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
-                    class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand">项目演示</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a>国家电网</a></li>
-            </ul>
-        </div>
+    <img src="static/image/41218.png" style="width: 100%;height: 100%;">
+    <div class="container-fluid" >
+        <%--<div class="navbar-header">--%>
+            <%--<button type="button" class="navbar-toggle show pull-left" data-target="sidebar">--%>
+                <%--<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span--%>
+                    <%--class="icon-bar"></span><span class="icon-bar"></span>--%>
+            <%--</button>--%>
+            <%--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"--%>
+                    <%--aria-expanded="false" aria-controls="navbar">--%>
+                <%--<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span--%>
+                    <%--class="icon-bar"></span><span class="icon-bar"></span>--%>
+            <%--</button>--%>
+            <%--<a class="navbar-brand">项目演示</a>--%>
+        <%--</div>--%>
+        <%--<div id="navbar" class="collapse navbar-collapse">--%>
+            <%--<ul class="nav navbar-nav navbar-right">--%>
+                <%--<li><a>国家电网</a></li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
     </div>
 </nav>
-<div class="container-fluid all">
-    <div class="sidebar">
+<div class="container-fluid all" style="margin-top:67px;">
+    <div class="sidebar" style="top: 67px;">
         <ul class="nav" id="nav_list">
             <li class="era_rd active" onclick="btnClick('ERA_RD')"><a>ERA_RD</a></li>
             <li class="era_next" onclick="btnClick('ERA_NEXT')"><a>ERA_NEXT</a></li>
@@ -84,7 +85,7 @@
             <!--flot start-->
             <div class="row" id="chart-flot">
                 <div class="content">
-                    <div id="v_msg_chart" class="center-block" style="width: 1000px;height: 500px"></div>
+                    <div id="v_msg_chart" class="center-block" style="width: 1000px;height: 900px"></div>
                     <div id="damping_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                     <div id="frequency_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                     <div id="modeshape_chart" class="center-block" style="width: 1000px;height: 500px"></div>

@@ -95,6 +95,11 @@ function renderTestChart(fileName) {
             itemGap: 20,
             itemWidth: 15
         },
+        toolbox: {
+            feature: {
+                restore: {}
+            }
+        },
         dataZoom: [
             { // 第一个 dataZoom 组件
                 yAxisIndex: [0, 11], // 表示这个 dataZoom 组件控制 第一个 和 第三个 yAxis
@@ -621,16 +626,6 @@ function renderTestChart(fileName) {
                     xAxis: {
                         data: axis_x
                     },
-                    dataZoom: [
-                        { // 第一个 dataZoom 组件
-                            yAxisIndex: [0, 11] // 表示这个 dataZoom 组件控制 第一个 和 第三个 yAxis
-                        },
-                        {
-                            type: 'inside',
-                            start: 0,
-                            end: 100
-                        }
-                    ],
                     series: [{
                         // 根据名字对应到相应的系列
                         name: '变电站1',

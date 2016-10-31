@@ -97,7 +97,8 @@ function renderTestChart(fileName) {
         },
         dataZoom: [
             { // 第一个 dataZoom 组件
-                yAxisIndex: [0, 11] // 表示这个 dataZoom 组件控制 第一个 和 第三个 yAxis
+                yAxisIndex: [0, 11], // 表示这个 dataZoom 组件控制 第一个 和 第三个 yAxis
+                type:'inside'
             },
             {
                 type: 'inside',

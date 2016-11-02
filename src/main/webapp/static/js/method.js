@@ -86,9 +86,14 @@ function renderTestChart(fileName) {
         tooltip: {
             trigger: 'axis'
         },
+        color:['#b9bd06','#b58282','#bd5c06','#bf31b3','#1d011a','#7b32a7','#0930c3','#027a7b','#3b9605','#715604','#6b0303','#9c0101'],
         legend: {
-            data: ['变电站1', '变电站2', '', '变电站3', '变电站4', '', '变电站5', '变电站6', '',
-                '变电站7', '变电站8', '', '变电站9', '变电站10', '', '变电站11', '变电站12'],
+            data: [{name:'变电站1',icon:'circle'}, {name:'变电站2',icon:'circle'}, '',
+                {name:'变电站3',icon:'circle'},{name:'变电站4',icon:'circle'},
+                '', {name:'变电站5',icon:'circle'}, {name:'变电站6',icon:'circle'}
+                , '', {name:'变电站7',icon:'circle'}, {name:'变电站8',icon:'circle'}
+                , '', {name:'变电站9',icon:'circle'}, {name:'变电站10',icon:'circle'}
+                , '', {name:'变电站11',icon:'circle'}, {name:'变电站12',icon:'circle'}],
             top: 'top',
             orient: 'vertical',
             left: 'center',
@@ -372,9 +377,14 @@ function renderTestChart(fileName) {
         title: {
             text: 'modeshape'
         },
+        color:['#b9bd06','#b58282','#bd5c06','#bf31b3','#1d011a','#7b32a7','#0930c3','#027a7b','#3b9605','#715604','#6b0303','#9c0101'],
         legend: {
-            data: ['变电站1', '变电站2', '变电站3', '变电站4', '', '变电站5', '变电站6',
-                '变电站7', '变电站8', '', '变电站9', '变电站10', '变电站11', '变电站12'],
+            data: [{name:'变电站1',icon:'circle'}, {name:'变电站2',icon:'circle'},
+                {name:'变电站3',icon:'circle'}, {name:'变电站4',icon:'circle'}
+                , '', {name:'变电站5',icon:'circle'}, {name:'变电站6',icon:'circle'},
+                {name:'变电站7',icon:'circle'}, {name:'变电站8',icon:'circle'},
+                '', {name:'变电站9',icon:'circle'}, {name:'变电站10',icon:'circle'},
+                {name:'变电站11',icon:'circle'}, {name:'变电站12',icon:'circle'}],
             //top:'top',
             orient: 'vertical',
             left: 'right',

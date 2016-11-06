@@ -33,7 +33,7 @@ function activeLi(methodName) {
     document.getElementById("era_next").style.backgroundImage = 'url(static/image/ERA_NEXT.png)';
     document.getElementById("itd_rd").style.backgroundImage = 'url(static/image/ITD_RD.png)';
 
-    document.getElementById(""+methodName.toLowerCase()).style.backgroundImage = 'url(static/image/'+methodName+'_white.png)';
+    document.getElementById("" + methodName.toLowerCase()).style.backgroundImage = 'url(static/image/' + methodName + '_white.png)';
     //$("#nav_list ." + methodName.toLowerCase()).addClass('active');
 }
 
@@ -81,14 +81,14 @@ function renderTestChart(fileName) {
         tooltip: {
             trigger: 'axis'
         },
-        color:['#b9bd06','#b58282','#bd5c06','#bf31b3','#1d011a','#7b32a7','#0930c3','#027a7b','#3b9605','#715604','#6b0303','#9c0101'],
+        color: ['#b9bd06', '#b58282', '#bd5c06', '#bf31b3', '#1d011a', '#7b32a7', '#0930c3', '#027a7b', '#3b9605', '#715604', '#6b0303', '#9c0101'],
         legend: {
-            data: [{name:'变电站1',icon:'circle'}, {name:'变电站2',icon:'circle'}, '',
-                {name:'变电站3',icon:'circle'},{name:'变电站4',icon:'circle'},
-                '', {name:'变电站5',icon:'circle'}, {name:'变电站6',icon:'circle'}
-                , '', {name:'变电站7',icon:'circle'}, {name:'变电站8',icon:'circle'}
-                , '', {name:'变电站9',icon:'circle'}, {name:'变电站10',icon:'circle'}
-                , '', {name:'变电站11',icon:'circle'}, {name:'变电站12',icon:'circle'}],
+            data: [{name: '变电站1', icon: 'circle'}, {name: '变电站2', icon: 'circle'}, '',
+                {name: '变电站3', icon: 'circle'}, {name: '变电站4', icon: 'circle'},
+                '', {name: '变电站5', icon: 'circle'}, {name: '变电站6', icon: 'circle'}
+                , '', {name: '变电站7', icon: 'circle'}, {name: '变电站8', icon: 'circle'}
+                , '', {name: '变电站9', icon: 'circle'}, {name: '变电站10', icon: 'circle'}
+                , '', {name: '变电站11', icon: 'circle'}, {name: '变电站12', icon: 'circle'}],
             top: 'top',
             orient: 'vertical',
             left: 'center',
@@ -103,7 +103,7 @@ function renderTestChart(fileName) {
         dataZoom: [
             { // 第一个 dataZoom 组件
                 yAxisIndex: [0, 11], // 表示这个 dataZoom 组件控制 第一个 和 第三个 yAxis
-                type:'inside'
+                type: 'inside'
             },
             {
                 type: 'inside',
@@ -372,14 +372,14 @@ function renderTestChart(fileName) {
         title: {
             text: 'Modeshape'
         },
-        color:['#b9bd06','#b58282','#bd5c06','#bf31b3','#1d011a','#7b32a7','#0930c3','#027a7b','#3b9605','#715604','#6b0303','#9c0101'],
+        color: ['#b9bd06', '#b58282', '#bd5c06', '#bf31b3', '#1d011a', '#7b32a7', '#0930c3', '#027a7b', '#3b9605', '#715604', '#6b0303', '#9c0101'],
         legend: {
-            data: [{name:'变电站1',icon:'circle'}, {name:'变电站2',icon:'circle'},
-                {name:'变电站3',icon:'circle'}, {name:'变电站4',icon:'circle'}
-                , '', {name:'变电站5',icon:'circle'}, {name:'变电站6',icon:'circle'},
-                {name:'变电站7',icon:'circle'}, {name:'变电站8',icon:'circle'},
-                '', {name:'变电站9',icon:'circle'}, {name:'变电站10',icon:'circle'},
-                {name:'变电站11',icon:'circle'}, {name:'变电站12',icon:'circle'}],
+            data: [{name: '变电站1', icon: 'circle'}, {name: '变电站2', icon: 'circle'},
+                {name: '变电站3', icon: 'circle'}, {name: '变电站4', icon: 'circle'}
+                , '', {name: '变电站5', icon: 'circle'}, {name: '变电站6', icon: 'circle'},
+                {name: '变电站7', icon: 'circle'}, {name: '变电站8', icon: 'circle'},
+                '', {name: '变电站9', icon: 'circle'}, {name: '变电站10', icon: 'circle'},
+                {name: '变电站11', icon: 'circle'}, {name: '变电站12', icon: 'circle'}],
             //top:'top',
             orient: 'vertical',
             left: 'right',
@@ -395,7 +395,9 @@ function renderTestChart(fileName) {
         },
         angleAxis: {
             type: 'value',
-            startAngle: 0
+            startAngle: 0,
+            max:360,
+            clockwise:false,
         },
         radiusAxis: {},
         grid: {

@@ -7,7 +7,7 @@ function btnClick(methodName) {
         fileName = "1"
     } else if (methodName == "ERA_NEXT") {
         fileName = "2"
-    } else if (methodName == "SWRDITDAmbient") {
+    } else if (methodName == "ITD_RD") {
         fileName = "3"
     }
     renderTestChart(fileName);
@@ -31,7 +31,7 @@ function activeLi(methodName) {
     console.log("'url(static/image/" + methodName + "_white.png)'");
     document.getElementById("era_rd").style.backgroundImage = 'url(static/image/ERA_RD.png)';
     document.getElementById("era_next").style.backgroundImage = 'url(static/image/ERA_NEXT.png)';
-    document.getElementById("swrditdambient").style.backgroundImage = 'url(static/image/SWR.png)';
+    document.getElementById("itd_rd").style.backgroundImage = 'url(static/image/ITD_RD.png)';
 
     document.getElementById(""+methodName.toLowerCase()).style.backgroundImage = 'url(static/image/'+methodName+'_white.png)';
     //$("#nav_list ." + methodName.toLowerCase()).addClass('active');

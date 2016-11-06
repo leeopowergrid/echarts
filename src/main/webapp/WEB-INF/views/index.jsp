@@ -86,8 +86,8 @@
             <div class="row" id="chart-flot">
                 <div class="content">
                     <div id="v_msg_chart" class="center-block" style="width: 1000px;height: 700px"></div>
-                    <div id="damping_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                     <div id="frequency_chart" class="center-block" style="width: 1000px;height: 500px"></div>
+                    <div id="damping_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                     <div id="modeshape_chart" class="center-block" style="width: 1000px;height: 500px"></div>
                 </div>
             </div>

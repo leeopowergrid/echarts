@@ -304,7 +304,7 @@ function renderTestChart(fileName) {
 
     var damping_option = {
         title: {
-            text: 'damping'
+            text: 'Damping'
         },
         tooltip: {
             trigger: 'axis',
@@ -337,7 +337,7 @@ function renderTestChart(fileName) {
 
     var frequency_option = {
         title: {
-            text: 'frequency'
+            text: 'Frequency'
         },
         tooltip: {
             trigger: 'axis',
@@ -370,7 +370,7 @@ function renderTestChart(fileName) {
 
     var modeShapeOption = {
         title: {
-            text: 'modeshape'
+            text: 'Modeshape'
         },
         color:['#b9bd06','#b58282','#bd5c06','#bf31b3','#1d011a','#7b32a7','#0930c3','#027a7b','#3b9605','#715604','#6b0303','#9c0101'],
         legend: {
